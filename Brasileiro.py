@@ -465,7 +465,11 @@ if choose == "Melhores do Brasileirão-2024":
             st.markdown("<h4 style='text-align: center;'><br>Métricas dos 5 Laterais Direitos Defensivos Mais Bem Ranqueados<br></h4>", unsafe_allow_html=True)
 
             # Assuming your DataFrame is ready and you want to apply the colormap
+            # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -632,6 +636,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -793,6 +800,8 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -962,6 +971,9 @@ if choose == "Melhores do Brasileirão-2024":
 
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -1128,6 +1140,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -1289,6 +1304,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -1459,6 +1477,9 @@ if choose == "Melhores do Brasileirão-2024":
 
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -1616,6 +1637,9 @@ if choose == "Melhores do Brasileirão-2024":
 
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -1783,6 +1807,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -1950,6 +1977,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -2116,6 +2146,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Styling DataFrame using Pandas
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -2282,6 +2315,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -2449,6 +2485,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -2615,6 +2654,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -2781,6 +2823,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -2948,6 +2993,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+                
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -3114,6 +3162,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -3282,6 +3333,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -3448,6 +3502,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -3614,6 +3671,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -3781,6 +3841,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -3947,6 +4010,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 
@@ -4113,6 +4179,9 @@ if choose == "Melhores do Brasileirão-2024":
         
             # Assuming your DataFrame is ready and you want to apply the colormap
             def highlight_ranked_metrics(row):
+                # Ensure that the row values are treated as numeric
+                row = pd.to_numeric(row)                
+
                 # Get the ranked positions (ascending order of ranking)
                 ranked = row.argsort()[::1].argsort()  
                 

@@ -21,9 +21,9 @@ df1 = pd.read_csv("jogador.csv")
 
 with st.sidebar:
 
-    jogadores = df1["Atleta"]
-    choose = option_menu("Galeria de Apps", ["Melhores do Brasileirão-2024", "Ranking de Jogadores"],
-                         icons=['sort-numeric-down', 'graph-up-arrow' ],
+    jogadores = df["Atleta"]
+    choose = option_menu("Galeria de Apps", ["Melhores do Brasileirão-2024", "Ranking de Jogadores", "Compare Jogadores"],
+                         icons=['sort-numeric-down', 'graph-up-arrow', 'question-lg'],
                          menu_icon="universal-access", default_index=0, 
                          styles={
                          "container": {"padding": "5!important", "background-color": "#fafafa"},
@@ -10648,3 +10648,1469 @@ elif choose == "Ranking de Jogadores":
                         #####################################################################################################################
                         #####################################################################################################################
 
+if choose == "Compare Jogadores":
+    
+    jogador_1 = st.selectbox("Escolha o primeiro Jogador!", options=jogadores, index=None, placeholder="Escolha o primeiro Jogador!")
+
+    if jogador_1:
+        #Determinar Equipe e Posição
+        df20 = df.loc[(df['Atleta']==jogador_1)]
+        equipes = df20['Equipe'].unique()
+        equipe_1 = st.selectbox("Escolha o Clube do primeiro Jogador!", options=equipes)
+        posições = df20['Posição2'].unique()
+        posição_1 = st.selectbox("Escolha a Posição do primeiro Jogador!", options=posições)
+
+    jogador_2 = st.selectbox("Escolha o segundo Jogador!", options=jogadores, index=None, placeholder="Escolha o segundo Jogador!")
+
+    if jogador_2:
+        #Determinar Equipe e Posição
+        df20 = df.loc[(df['Atleta']==jogador_2)]
+        equipes = df20['Equipe'].unique()
+        equipe_2 = st.selectbox("Escolha o Clube do segundo Jogador!", options=equipes)
+        posições = df20['Posição2'].unique()
+        posição_2 = st.selectbox("Escolha a Posição do segundo Jogador!", options=posições)
+
+        if (posição_1 == posição_2 == ("Goleiro")):
+            
+            #Plotar Primeiro Gráfico - Radar de Percentis do Jogador na liga:
+            st.markdown("<h3 style='text-align: center; color: blue; '>Comparação do Desempenho dos Jogadores em 2024<br><br>Perfil: Goleiro Clássico</h3>", unsafe_allow_html=True)
+            Goleiro_Charts = pd.read_csv('PlayerAnalysis_Role_1.csv')
+
+            Goleiro_Charts_1 = Goleiro_Charts[
+            ((Goleiro_Charts['Atleta'] == jogador_1) & (Goleiro_Charts['Equipe'] == equipe_1)) |
+            ((Goleiro_Charts['Atleta'] == jogador_2) & (Goleiro_Charts['Equipe'] == equipe_2))
+            ]
+
+            # Reindex to ensure the correct order
+            Goleiro_Charts_1 = Goleiro_Charts_1.set_index('Atleta').loc[[jogador_1, jogador_2]].reset_index()
+
+            # Create a dictionary of columns to rename by removing the '_percentil' suffix
+            columns_to_rename = {
+                col: col.replace('_Percentil', '') for col in Goleiro_Charts_1.columns if '_Percentil' in col
+            }            
+
+            #Collecting data to plot
+            metrics = Goleiro_Charts_1.iloc[:, np.r_[0, 48:55]].reset_index(drop=True)
+            metrics.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+######################################################################################################################################
+######################################################################################################################################
+
+        elif (posição_1 == posição_2 == ("Lateral")):
+            
+            #Plotar Primeiro Gráfico - Radar de Percentis do Jogador na liga:
+            st.markdown("<h3 style='text-align: center; color: blue; '>Comparação do Desempenho dos Jogadores em 2024<br><br>Perfil: Lateral Equilibrado</h3>", unsafe_allow_html=True)
+            Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_5.csv')
+
+            Lateral_Charts_1 = Lateral_Charts[
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ]
+
+            # Reindex to ensure the correct order
+            Lateral_Charts_1 = Lateral_Charts_1.set_index('Atleta').loc[[jogador_1, jogador_2]].reset_index()
+
+            # Create a dictionary of columns to rename by removing the '_percentil' suffix
+            columns_to_rename = {
+                col: col.replace('_Percentil', '') for col in Lateral_Charts_1.columns if '_Percentil' in col
+            }            
+
+            #Collecting data to plot
+            metrics_1 = Lateral_Charts_1.iloc[:, np.r_[0, 81:90]].reset_index(drop=True)
+            metrics_2 = Lateral_Charts_1.iloc[:, np.r_[0, 90:99]].reset_index(drop=True)
+            
+            #Plotting the first graph
+            metrics_1.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_1.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_1['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_1.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_1.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+            #Plotting the second graph
+            metrics_2.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_2.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_2['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_2.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_2.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+######################################################################################################################################
+######################################################################################################################################
+
+        elif (posição_1 == posição_2 == ("Zagueiro")):
+            
+            #Plotar Primeiro Gráfico - Radar de Percentis do Jogador na liga:
+            st.markdown("<h3 style='text-align: center; color: blue; '>Comparação do Desempenho dos Jogadores em 2024<br><br>Perfil: Zagueiro Equilibrado</h3>", unsafe_allow_html=True)
+            Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_8.csv')
+
+            Lateral_Charts_1 = Lateral_Charts[
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ]
+
+            # Reindex to ensure the correct order
+            Lateral_Charts_1 = Lateral_Charts_1.set_index('Atleta').loc[[jogador_1, jogador_2]].reset_index()
+
+            # Create a dictionary of columns to rename by removing the '_percentil' suffix
+            columns_to_rename = {
+                col: col.replace('_Percentil', '') for col in Lateral_Charts_1.columns if '_Percentil' in col
+            }            
+
+            #Collecting data to plot
+            metrics_1 = Lateral_Charts_1.iloc[:, np.r_[0, 66:73]].reset_index(drop=True)
+            metrics_2 = Lateral_Charts_1.iloc[:, np.r_[0, 73:79]].reset_index(drop=True)
+            
+            #Plotting the first graph
+            metrics_1.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_1.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_1['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_1.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_1.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+            #Plotting the second graph
+            metrics_2.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_2.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_2['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_2.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_2.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+
+######################################################################################################################################
+######################################################################################################################################
+
+        elif (posição_1 == posição_2 == ("Primeiro Volante")):
+            
+            #Plotar Primeiro Gráfico - Radar de Percentis do Jogador na liga:
+            st.markdown("<h3 style='text-align: center; color: blue; '>Comparação do Desempenho dos Jogadores em 2024<br><br>Perfil: Primeiro Volante Equilibrado</h3>", unsafe_allow_html=True)
+            Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_11.csv')
+
+            Lateral_Charts_1 = Lateral_Charts[
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ]
+
+            # Reindex to ensure the correct order
+            Lateral_Charts_1 = Lateral_Charts_1.set_index('Atleta').loc[[jogador_1, jogador_2]].reset_index()
+
+            # Create a dictionary of columns to rename by removing the '_percentil' suffix
+            columns_to_rename = {
+                col: col.replace('_Percentil', '') for col in Lateral_Charts_1.columns if '_Percentil' in col
+            }            
+
+            #Collecting data to plot
+            metrics_1 = Lateral_Charts_1.iloc[:, np.r_[0, 60:66]].reset_index(drop=True)
+            metrics_2 = Lateral_Charts_1.iloc[:, np.r_[0, 66:71]].reset_index(drop=True)
+            
+            #Plotting the first graph
+            metrics_1.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_1.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_1['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_1.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_1.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+            #Plotting the second graph
+            metrics_2.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_2.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_2['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_2.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_2.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+######################################################################################################################################
+######################################################################################################################################
+
+        elif (posição_1 == posição_2 == ("Segundo Volante")):
+            
+            #Plotar Primeiro Gráfico - Radar de Percentis do Jogador na liga:
+            st.markdown("<h3 style='text-align: center; color: blue; '>Comparação do Desempenho dos Jogadores em 2024<br><br>Perfil: Segundo Volante Equilibrado</h3>", unsafe_allow_html=True)
+            Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_14.csv')
+
+            Lateral_Charts_1 = Lateral_Charts[
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ]
+
+            # Reindex to ensure the correct order
+            Lateral_Charts_1 = Lateral_Charts_1.set_index('Atleta').loc[[jogador_1, jogador_2]].reset_index()
+
+            # Create a dictionary of columns to rename by removing the '_percentil' suffix
+            columns_to_rename = {
+                col: col.replace('_Percentil', '') for col in Lateral_Charts_1.columns if '_Percentil' in col
+            }            
+
+            #Collecting data to plot
+            metrics_1 = Lateral_Charts_1.iloc[:, np.r_[0, 66:72]].reset_index(drop=True)
+            metrics_2 = Lateral_Charts_1.iloc[:, np.r_[0, 72:79]].reset_index(drop=True)
+            
+            #Plotting the first graph
+            metrics_1.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_1.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_1['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_1.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_1.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+            #Plotting the second graph
+            metrics_2.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_2.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_2['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_2.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_2.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+
+######################################################################################################################################
+######################################################################################################################################
+
+        elif (posição_1 == posição_2 == ("Meia")):
+            
+            #Plotar Primeiro Gráfico - Radar de Percentis do Jogador na liga:
+            st.markdown("<h3 style='text-align: center; color: blue; '>Comparação do Desempenho dos Jogadores em 2024<br><br>Perfil: Meia Organizador</h3>", unsafe_allow_html=True)
+            Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_15.csv')
+
+            Lateral_Charts_1 = Lateral_Charts[
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ]
+
+            # Reindex to ensure the correct order
+            Lateral_Charts_1 = Lateral_Charts_1.set_index('Atleta').loc[[jogador_1, jogador_2]].reset_index()
+
+            # Create a dictionary of columns to rename by removing the '_percentil' suffix
+            columns_to_rename = {
+                col: col.replace('_Percentil', '') for col in Lateral_Charts_1.columns if '_Percentil' in col
+            }            
+
+            #Collecting data to plot
+            metrics_1 = Lateral_Charts_1.iloc[:, np.r_[0, 57:67]].reset_index(drop=True)
+            #metrics_2 = Lateral_Charts_1.iloc[:, np.r_[0, 72:79]].reset_index(drop=True)
+            
+            #Plotting the first graph
+            metrics_1.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_1.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_1['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_1.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_1.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+            
+######################################################################################################################################
+
+            #Plotar Primeiro Gráfico - Radar de Percentis do Jogador na liga:
+            st.markdown("<h3 style='text-align: center; color: blue; '>Comparação do Desempenho dos Jogadores em 2024<br><br>Perfil: Meia Atacante</h3>", unsafe_allow_html=True)
+            Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_16.csv')
+
+            Lateral_Charts_1 = Lateral_Charts[
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ]
+
+            # Reindex to ensure the correct order
+            Lateral_Charts_1 = Lateral_Charts_1.set_index('Atleta').loc[[jogador_1, jogador_2]].reset_index()
+
+            # Create a dictionary of columns to rename by removing the '_percentil' suffix
+            columns_to_rename = {
+                col: col.replace('_Percentil', '') for col in Lateral_Charts_1.columns if '_Percentil' in col
+            }            
+
+            #Collecting data to plot
+            metrics_1 = Lateral_Charts_1.iloc[:, np.r_[0, 78:87]].reset_index(drop=True)
+            metrics_2 = Lateral_Charts_1.iloc[:, np.r_[0, 87:95]].reset_index(drop=True)
+            
+            #Plotting the first graph
+            metrics_1.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_1.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_1['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_1.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_1.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+            #Plotting the second graph
+            metrics_2.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_2.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_2['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_2.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_2.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+
+######################################################################################################################################
+######################################################################################################################################
+
+        elif (posição_1 == posição_2 == ("Extremo")):
+            
+            #Plotar Primeiro Gráfico - Radar de Percentis do Jogador na liga:
+            st.markdown("<h3 style='text-align: center; color: blue; '>Comparação do Desempenho dos Jogadores em 2024<br><br>Perfil: Extremo Organizador</h3>", unsafe_allow_html=True)
+            Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_17.csv')
+
+            Lateral_Charts_1 = Lateral_Charts[
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ]
+
+            # Reindex to ensure the correct order
+            Lateral_Charts_1 = Lateral_Charts_1.set_index('Atleta').loc[[jogador_1, jogador_2]].reset_index()
+
+            # Create a dictionary of columns to rename by removing the '_percentil' suffix
+            columns_to_rename = {
+                col: col.replace('_Percentil', '') for col in Lateral_Charts_1.columns if '_Percentil' in col
+            }            
+
+            #Collecting data to plot
+            metrics_1 = Lateral_Charts_1.iloc[:, np.r_[0, 66:73]].reset_index(drop=True)
+            metrics_2 = Lateral_Charts_1.iloc[:, np.r_[0, 73:79]].reset_index(drop=True)
+            
+            #Plotting the first graph
+            metrics_1.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_1.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_1['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_1.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_1.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+            #Plotting the second graph
+            metrics_2.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_2.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_2['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_2.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_2.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+
+######################################################################################################################################
+
+            #Plotar Primeiro Gráfico - Radar de Percentis do Jogador na liga:
+            st.markdown("<h3 style='text-align: center; color: blue; '>Comparação do Desempenho dos Jogadores em 2024<br><br>Perfil: Extremo Tático</h3>", unsafe_allow_html=True)
+            Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_18.csv')
+
+            Lateral_Charts_1 = Lateral_Charts[
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ]
+
+            # Reindex to ensure the correct order
+            Lateral_Charts_1 = Lateral_Charts_1.set_index('Atleta').loc[[jogador_1, jogador_2]].reset_index()
+
+            # Create a dictionary of columns to rename by removing the '_percentil' suffix
+            columns_to_rename = {
+                col: col.replace('_Percentil', '') for col in Lateral_Charts_1.columns if '_Percentil' in col
+            }            
+
+            #Collecting data to plot
+            metrics_1 = Lateral_Charts_1.iloc[:, np.r_[0, 48:55]].reset_index(drop=True)
+            #metrics_2 = Lateral_Charts_1.iloc[:, np.r_[0, 72:79]].reset_index(drop=True)
+            
+            #Plotting the first graph
+            metrics_1.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_1.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_1['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_1.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_1.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+######################################################################################################################################
+
+            #Plotar Primeiro Gráfico - Radar de Percentis do Jogador na liga:
+            st.markdown("<h3 style='text-align: center; color: blue; '>Comparação do Desempenho dos Jogadores em 2024<br><br>Perfil: Extremo Agudo</h3>", unsafe_allow_html=True)
+            Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_19.csv')
+
+            Lateral_Charts_1 = Lateral_Charts[
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ]
+
+            # Reindex to ensure the correct order
+            Lateral_Charts_1 = Lateral_Charts_1.set_index('Atleta').loc[[jogador_1, jogador_2]].reset_index()
+
+            # Create a dictionary of columns to rename by removing the '_percentil' suffix
+            columns_to_rename = {
+                col: col.replace('_Percentil', '') for col in Lateral_Charts_1.columns if '_Percentil' in col
+            }            
+
+            #Collecting data to plot
+            metrics_1 = Lateral_Charts_1.iloc[:, np.r_[0, 66:73]].reset_index(drop=True)
+            metrics_2 = Lateral_Charts_1.iloc[:, np.r_[0, 73:79]].reset_index(drop=True)
+            
+            #Plotting the first graph
+            metrics_1.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_1.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_1['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_1.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_1.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+            #Plotting the second graph
+            metrics_2.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_2.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_2['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_2.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_2.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+
+######################################################################################################################################
+######################################################################################################################################
+
+        elif (posição_1 == posição_2 == ("Atacante")):
+
+            #Plotar Primeiro Gráfico - Radar de Percentis do Jogador na liga:
+            st.markdown("<h3 style='text-align: center; color: blue; '>Comparação do Desempenho dos Jogadores em 2024<br><br>Perfil: Atacante Referência</h3>", unsafe_allow_html=True)
+            Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_20.csv')
+
+            Lateral_Charts_1 = Lateral_Charts[
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ]
+
+            # Reindex to ensure the correct order
+            Lateral_Charts_1 = Lateral_Charts_1.set_index('Atleta').loc[[jogador_1, jogador_2]].reset_index()
+
+            # Create a dictionary of columns to rename by removing the '_percentil' suffix
+            columns_to_rename = {
+                col: col.replace('_Percentil', '') for col in Lateral_Charts_1.columns if '_Percentil' in col
+            }            
+
+            #Collecting data to plot
+            metrics_1 = Lateral_Charts_1.iloc[:, np.r_[0, 57:67]].reset_index(drop=True)
+            #metrics_2 = Lateral_Charts_1.iloc[:, np.r_[0, 72:79]].reset_index(drop=True)
+            
+            #Plotting the first graph
+            metrics_1.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_1.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_1['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_1.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_1.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+
+######################################################################################################################################
+            
+            #Plotar Primeiro Gráfico - Radar de Percentis do Jogador na liga:
+            st.markdown("<h3 style='text-align: center; color: blue; '>Comparação do Desempenho dos Jogadores em 2024<br><br>Perfil: Atacante Móvel</h3>", unsafe_allow_html=True)
+            Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_21.csv')
+
+            Lateral_Charts_1 = Lateral_Charts[
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ]
+
+            # Reindex to ensure the correct order
+            Lateral_Charts_1 = Lateral_Charts_1.set_index('Atleta').loc[[jogador_1, jogador_2]].reset_index()
+
+            # Create a dictionary of columns to rename by removing the '_percentil' suffix
+            columns_to_rename = {
+                col: col.replace('_Percentil', '') for col in Lateral_Charts_1.columns if '_Percentil' in col
+            }            
+
+            #Collecting data to plot
+            metrics_1 = Lateral_Charts_1.iloc[:, np.r_[0, 54:63]].reset_index(drop=True)
+            #metrics_2 = Lateral_Charts_1.iloc[:, np.r_[0, 73:79]].reset_index(drop=True)
+            
+            #Plotting the first graph
+            metrics_1.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_1.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_1['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_1.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_1.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+
+######################################################################################################################################
+
+            #Plotar Primeiro Gráfico - Radar de Percentis do Jogador na liga:
+            st.markdown("<h3 style='text-align: center; color: blue; '>Comparação do Desempenho dos Jogadores em 2024<br><br>Perfil: Segundo Atacante</h3>", unsafe_allow_html=True)
+            Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_22.csv')
+
+            Lateral_Charts_1 = Lateral_Charts[
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ]
+
+            # Reindex to ensure the correct order
+            Lateral_Charts_1 = Lateral_Charts_1.set_index('Atleta').loc[[jogador_1, jogador_2]].reset_index()
+
+            # Create a dictionary of columns to rename by removing the '_percentil' suffix
+            columns_to_rename = {
+                col: col.replace('_Percentil', '') for col in Lateral_Charts_1.columns if '_Percentil' in col
+            }            
+
+            #Collecting data to plot
+            metrics_1 = Lateral_Charts_1.iloc[:, np.r_[0, 66:73]].reset_index(drop=True)
+            metrics_2 = Lateral_Charts_1.iloc[:, np.r_[0, 73:79]].reset_index(drop=True)
+            
+            #Plotting the first graph
+            metrics_1.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_1.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_1['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_1.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_1.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+            #Plotting the second graph
+            metrics_2.rename(columns=columns_to_rename, inplace=True)
+            ## parameter names
+            params = list(metrics_2.columns[1:])
+
+            ## range values
+            ranges = [(0, 100), (0, 100), (0, 100), (0, 100), (0, 100), (0, 100)]
+            a_values = []
+            b_values = []
+
+            # Check each entry in 'Atleta' column to find match for jogador_1 and jogador_2
+            for i, atleta in enumerate(metrics_2['Atleta']):
+                if atleta == jogador_1:
+                    a_values = metrics_2.iloc[i, 1:].tolist()  # Skip 'Atleta' column
+                elif atleta == jogador_2:
+                    b_values = metrics_2.iloc[i, 1:].tolist()
+
+            values = [a_values, b_values]
+
+            ## title values
+            title = dict(
+                title_name=jogador_1,
+                title_color = '#B6282F',
+                subtitle_name= equipe_1,
+                subtitle_color='#B6282F',
+                title_name_2=jogador_2,
+                title_color_2 = '#344D94',
+                subtitle_name_2=equipe_2,
+                subtitle_color_2='#344D94',
+                title_fontsize=20,
+                subtitle_fontsize=18,
+            )            
+
+            ## endnote 
+            endnote = "Gráfico: @JAmerico1898\nTodos os dados em percentil"
+
+            ## instantiate object
+            #radar = Radar()
+
+            radar=Radar(fontfamily='Cursive', range_fontsize=8)
+            fig, ax = radar.plot_radar(
+                ranges=ranges,
+                params=params,
+                values=values,
+                radar_color=['#B6282F', '#344D94'],
+                dpi=600,
+                alphas=[.8, .6],
+                title=title,
+                endnote=endnote,
+                compare=True
+            )
+            st.pyplot(fig)
+
+
+######################################################################################################################################
+######################################################################################################################################
+
+        else:
+            
+            st.markdown("<h3 style='text-align: center; color: red; '><br><br>A comparação não é possível, pois os jogadores são de posições diferentes.</h3>", unsafe_allow_html=True)

@@ -4269,8 +4269,16 @@ if choose == "Melhores do Brasileirão-2024":
             st.pyplot(legend_fig)
 
 elif choose == "Ranking de Jogadores":
+    
+    #CABEÇALHO DO FORM
+    st.markdown("<h1 style='text-align: center;'>Melhores do Brasileirão até a Rodada 25</h1>", unsafe_allow_html=True)
+    st.markdown("<h6 style='text-align: center;'>app by @JAmerico1898</h6>", unsafe_allow_html=True)
+    st.markdown("---")
+
+    
     st.markdown("<h2 style='text-align: center;'>Ranking de Jogadores</h2>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center;'>2020-2024</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>Série A - 2024</h3>", unsafe_allow_html=True)
+    st.markdown("---")
     jogadores = st.selectbox("Digite o nome de seu jogador. A grafia deve ser exata!", options=jogadores, index=None, placeholder="Jogador")
     temporada = 2024
     liga = 'BRA1'
@@ -10649,6 +10657,16 @@ elif choose == "Ranking de Jogadores":
                         #####################################################################################################################
 
 if choose == "Compare Jogadores":
+    
+    #CABEÇALHO DO FORM
+    st.markdown("<h1 style='text-align: center;'>Melhores do Brasileirão até a Rodada 25</h1>", unsafe_allow_html=True)
+    st.markdown("<h6 style='text-align: center;'>app by @JAmerico1898</h6>", unsafe_allow_html=True)
+    st.markdown("---")
+
+    st.markdown("<h2 style='text-align: center;'>Compare Jogadores</h2>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>Série A - 2024</h3>", unsafe_allow_html=True)
+    st.markdown("---")
+
     
     jogador_1 = st.selectbox("Escolha o primeiro Jogador!", options=jogadores, index=None, placeholder="Escolha o primeiro Jogador!")
 

@@ -12,6 +12,8 @@ from soccerplots.radar_chart import Radar
 from sklearn.decomposition import PCA
 from PIL import Image
 import seaborn as sns
+from matplotlib import cm
+
 
 df = pd.read_csv("jogadores.csv")
 df1 = pd.read_csv("jogador.csv")
@@ -3278,7 +3280,7 @@ if choose == "Melhores do Brasileirão-2024":
         def style_table(df):
             df = df.rename(columns={'Equipe_Janela_Análise':'Equipe', 'Valor_Mercado': 'Valor', 'Nacionalidade': 'Nacional'})
             df = df.reset_index(drop=True)
-            
+
             # Ensure 'Rating' is rounded and formatted to 3 decimal places during styling
             return df.style.set_table_styles(
                 [{
@@ -4409,9 +4411,33 @@ elif choose == "Ranking de Jogadores":
             tabela_d['Atleta'] = Atleta 
             tabela_d.insert(0, 'Atleta', tabela_d.pop('Atleta'))
             tabela_2 = pd.concat([tabela_2, tabela_c, tabela_d]).reset_index(drop=True)
+            tabela_2.rename(columns={'Atleta': 'Métricas'}, inplace=True)
             tabela_2 = tabela_2.transpose()
+
             st.markdown("<h4 style='text-align: center;'>Desempenho do Jogador na Liga/Temporada<br></h4>", unsafe_allow_html=True)
-            #st.dataframe(tabela_2, use_container_width=True)
+
+
+            # Define function to color and label cells in the "Percentil na Liga" column
+            def color_percentil(val):
+                # Color map for "Blues" from Matplotlib
+                cmap = plt.get_cmap('Blues')
+
+                # Define categories and corresponding thresholds
+                if val >= 90:
+                    color = cmap(0.8)  # "Elite"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 75 <= val < 90:
+                    color = cmap(0.65)  # "Destaque"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 60 <= val < 75:
+                    color = cmap(0.5)  # "Razoável"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 40 <= val < 60:
+                    color = cmap(0.35)  # "Mediano"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                else:
+                    color = cmap(0.2)  # "Fraco"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
 
             # Styling DataFrame using Pandas
             def style_table(df):
@@ -4422,7 +4448,13 @@ elif choose == "Ranking de Jogadores":
                 first_column_name = df.columns[1]  # Adjusted for the added index column
                 # Ensure 'Rating' is rounded and formatted to 2 decimal places during styling
                 formatter = {first_column_name: "{:.2f}", "Média da Liga": "{:.2f}", "Percentil na Liga": "{:.0f}"}
-                return df.style.format(formatter).set_table_styles(
+
+                # Apply the color formatting to "Percentil na Liga" column
+                styled_df = df.style.format(formatter).applymap(color_percentil, subset=["Percentil na Liga"])
+
+                # Additional table styles
+                styled_df = styled_df.set_table_styles(
+
                     [{
                         'selector': 'thead th',
                         'props': [('font-weight', 'bold'),
@@ -4450,6 +4482,8 @@ elif choose == "Ranking de Jogadores":
                     }]
                 ).set_properties(**{'padding': '2px', 'font-size': '15px', 'margin': 'auto'})  # Adjust this for centering
 
+                return styled_df
+
             # Displaying in Streamlit
             def main():
                 #st.title("Your DataFrame")
@@ -4461,6 +4495,39 @@ elif choose == "Ranking de Jogadores":
 
             if __name__ == '__main__':
                 main()
+
+            # Function to plot the legend for the 5 colors from the Blues colormap
+            def plot_color_legend():
+                # Create a list of 5 normalized values (from lowest to highest)
+                values = np.linspace(0, 0.5, 5)  # Normalized between 0 and 0.5 to cover half of the Blues colormap
+                
+                # Generate corresponding colors using the 'Blues' colormap
+                colors = plt.cm.Blues(values)
+                
+                # Labels for the legend (highest to lowest)
+                labels = ['Elite (>90)', 'Destaque (75-90)', 'Razoável (60-75)', 'Mediano (40-60)', 'Frágil (<40)']
+                
+                # Plot the legend horizontally with a smaller size
+                fig, ax = plt.subplots(figsize=(6, 0.2))  # Smaller layout
+                for i, (label, color) in enumerate(zip(labels[::-1], colors)):  # Reverse labels for display
+                    ax.add_patch(plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black'))  # Draw rectangle
+                    ax.text(i + 0.5, 0.5, label, ha='center', va='center', fontsize=7)  # Add text inside the rectangles
+                
+                ax.set_xlim(0, 5)
+                ax.set_ylim(0, 1)
+                ax.axis('off')  # Remove axes
+                
+                # Add an arrow pointing from "Highest" to "Lowest"
+                ax.annotate('', xy=(5, 1), xytext=(0, 1),
+                            arrowprops=dict(facecolor='black', shrink=0.04, width=1.3, headwidth=5))
+
+                return fig
+
+            # Call the function to plot the legend and display it in Streamlit
+            legend_fig = plot_color_legend()
+            st.pyplot(legend_fig)
+
+
 
             #####################################################################################################################
             #####################################################################################################################
@@ -4953,12 +5020,36 @@ elif choose == "Ranking de Jogadores":
             tabela_d['Atleta'] = Atleta 
             tabela_d.insert(0, 'Atleta', tabela_d.pop('Atleta'))
             tabela_2 = pd.concat([tabela_2, tabela_c, tabela_d]).reset_index(drop=True)
-#                        tabela_2 = tabela_2.append(tabela_c).reset_index()
-#                        tabela_2 = tabela_2.append(tabela_d).reset_index()
+            tabela_2.rename(columns={'Atleta': 'Métricas'}, inplace=True)
             tabela_2 = tabela_2.transpose()
-#                        tabela_2 = tabela_2.drop([tabela_2.index[0], tabela_2.index[1]])
+
             st.markdown("<h4 style='text-align: center;'>Desempenho do Jogador na Liga/Temporada</h4>", unsafe_allow_html=True)
-            #st.dataframe(tabela_2, use_container_width=True)
+
+
+            # Define function to color and label cells in the "Percentil na Liga" column
+            def color_percentil(val):
+                # Color map for "Blues" from Matplotlib
+                cmap = plt.get_cmap('Blues')
+
+                # Define categories and corresponding thresholds
+                if val >= 90:
+                    color = cmap(0.8)  # "Elite"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 75 <= val < 90:
+                    color = cmap(0.65)  # "Destaque"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 60 <= val < 75:
+                    color = cmap(0.5)  # "Razoável"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 40 <= val < 60:
+                    color = cmap(0.35)  # "Mediano"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                else:
+                    color = cmap(0.2)  # "Fraco"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+
+
+
 
             # Styling DataFrame using Pandas
             def style_table(df):
@@ -4969,7 +5060,12 @@ elif choose == "Ranking de Jogadores":
                 first_column_name = df.columns[1]  # Adjusted for the added index column
                 # Ensure 'Rating' is rounded and formatted to 2 decimal places during styling
                 formatter = {first_column_name: "{:.2f}", "Média da Liga": "{:.2f}", "Percentil na Liga": "{:.0f}"}
-                return df.style.format(formatter).set_table_styles(
+    
+                # Apply the color formatting to "Percentil na Liga" column
+                styled_df = df.style.format(formatter).applymap(color_percentil, subset=["Percentil na Liga"])
+
+                # Additional table styles
+                styled_df = styled_df.set_table_styles(
                     [{
                         'selector': 'thead th',
                         'props': [('font-weight', 'bold'),
@@ -4997,6 +5093,8 @@ elif choose == "Ranking de Jogadores":
                     }]
                 ).set_properties(**{'padding': '2px', 'font-size': '15px', 'margin': 'auto'})  # Adjust this for centering
 
+                return styled_df
+
             # Displaying in Streamlit
             def main():
                 #st.title("Your DataFrame")
@@ -5008,6 +5106,37 @@ elif choose == "Ranking de Jogadores":
 
             if __name__ == '__main__':
                 main()
+
+            # Function to plot the legend for the 5 colors from the Blues colormap
+            def plot_color_legend():
+                # Create a list of 5 normalized values (from lowest to highest)
+                values = np.linspace(0, 0.5, 5)  # Normalized between 0 and 0.5 to cover half of the Blues colormap
+                
+                # Generate corresponding colors using the 'Blues' colormap
+                colors = plt.cm.Blues(values)
+                
+                # Labels for the legend (highest to lowest)
+                labels = ['Elite (>90)', 'Destaque (75-90)', 'Razoável (60-75)', 'Mediano (40-60)', 'Frágil (<40)']
+                
+                # Plot the legend horizontally with a smaller size
+                fig, ax = plt.subplots(figsize=(6, 0.2))  # Smaller layout
+                for i, (label, color) in enumerate(zip(labels[::-1], colors)):  # Reverse labels for display
+                    ax.add_patch(plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black'))  # Draw rectangle
+                    ax.text(i + 0.5, 0.5, label, ha='center', va='center', fontsize=7)  # Add text inside the rectangles
+                
+                ax.set_xlim(0, 5)
+                ax.set_ylim(0, 1)
+                ax.axis('off')  # Remove axes
+                
+                # Add an arrow pointing from "Highest" to "Lowest"
+                ax.annotate('', xy=(5, 1), xytext=(0, 1),
+                            arrowprops=dict(facecolor='black', shrink=0.04, width=1.3, headwidth=5))
+
+                return fig
+
+            # Call the function to plot the legend and display it in Streamlit
+            legend_fig = plot_color_legend()
+            st.pyplot(legend_fig)
 
 
             ##################################################################################################################### 
@@ -5439,12 +5568,36 @@ elif choose == "Ranking de Jogadores":
             tabela_d['Atleta'] = Atleta 
             tabela_d.insert(0, 'Atleta', tabela_d.pop('Atleta'))
             tabela_2 = pd.concat([tabela_2, tabela_c, tabela_d]).reset_index(drop=True)
-#                        tabela_2 = tabela_2.append(tabela_c).reset_index()
-#                        tabela_2 = tabela_2.append(tabela_d).reset_index()
+            tabela_2.rename(columns={'Atleta': 'Métricas'}, inplace=True)
             tabela_2 = tabela_2.transpose()
-#                        tabela_2 = tabela_2.drop([tabela_2.index[0], tabela_2.index[1]])
+
             st.markdown("<h4 style='text-align: center;'>Desempenho do Jogador na Liga/Temporada</h4>", unsafe_allow_html=True)
-            #st.dataframe(tabela_2, use_container_width=True)
+
+
+
+            # Define function to color and label cells in the "Percentil na Liga" column
+            def color_percentil(val):
+                # Color map for "Blues" from Matplotlib
+                cmap = plt.get_cmap('Blues')
+
+                # Define categories and corresponding thresholds
+                if val >= 90:
+                    color = cmap(0.8)  # "Elite"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 75 <= val < 90:
+                    color = cmap(0.65)  # "Destaque"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 60 <= val < 75:
+                    color = cmap(0.5)  # "Razoável"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 40 <= val < 60:
+                    color = cmap(0.35)  # "Mediano"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                else:
+                    color = cmap(0.2)  # "Fraco"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+
+
 
             # Styling DataFrame using Pandas
             def style_table(df):
@@ -5455,7 +5608,12 @@ elif choose == "Ranking de Jogadores":
                 first_column_name = df.columns[1]  # Adjusted for the added index column
                 # Ensure 'Rating' is rounded and formatted to 2 decimal places during styling
                 formatter = {first_column_name: "{:.2f}", "Média da Liga": "{:.2f}", "Percentil na Liga": "{:.0f}"}
-                return df.style.format(formatter).set_table_styles(
+    
+                # Apply the color formatting to "Percentil na Liga" column
+                styled_df = df.style.format(formatter).applymap(color_percentil, subset=["Percentil na Liga"])
+
+                # Additional table styles
+                styled_df = styled_df.set_table_styles(
                     [{
                         'selector': 'thead th',
                         'props': [('font-weight', 'bold'),
@@ -5483,6 +5641,8 @@ elif choose == "Ranking de Jogadores":
                     }]
                 ).set_properties(**{'padding': '2px', 'font-size': '15px', 'margin': 'auto'})  # Adjust this for centering
 
+                return styled_df
+
             # Displaying in Streamlit
             def main():
                 #st.title("Your DataFrame")
@@ -5495,6 +5655,36 @@ elif choose == "Ranking de Jogadores":
             if __name__ == '__main__':
                 main()
 
+            # Function to plot the legend for the 5 colors from the Blues colormap
+            def plot_color_legend():
+                # Create a list of 5 normalized values (from lowest to highest)
+                values = np.linspace(0, 0.5, 5)  # Normalized between 0 and 0.5 to cover half of the Blues colormap
+                
+                # Generate corresponding colors using the 'Blues' colormap
+                colors = plt.cm.Blues(values)
+                
+                # Labels for the legend (highest to lowest)
+                labels = ['Elite (>90)', 'Destaque (75-90)', 'Razoável (60-75)', 'Mediano (40-60)', 'Frágil (<40)']
+                
+                # Plot the legend horizontally with a smaller size
+                fig, ax = plt.subplots(figsize=(6, 0.2))  # Smaller layout
+                for i, (label, color) in enumerate(zip(labels[::-1], colors)):  # Reverse labels for display
+                    ax.add_patch(plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black'))  # Draw rectangle
+                    ax.text(i + 0.5, 0.5, label, ha='center', va='center', fontsize=7)  # Add text inside the rectangles
+                
+                ax.set_xlim(0, 5)
+                ax.set_ylim(0, 1)
+                ax.axis('off')  # Remove axes
+                
+                # Add an arrow pointing from "Highest" to "Lowest"
+                ax.annotate('', xy=(5, 1), xytext=(0, 1),
+                            arrowprops=dict(facecolor='black', shrink=0.04, width=1.3, headwidth=5))
+
+                return fig
+
+            # Call the function to plot the legend and display it in Streamlit
+            legend_fig = plot_color_legend()
+            st.pyplot(legend_fig)
 
             ##################################################################################################################### 
             #####################################################################################################################
@@ -5912,8 +6102,31 @@ elif choose == "Ranking de Jogadores":
             tabela_d['Atleta'] = Atleta 
             tabela_d.insert(0, 'Atleta', tabela_d.pop('Atleta'))
             tabela_2 = pd.concat([tabela_2, tabela_c, tabela_d]).reset_index(drop=True)
+            tabela_2.rename(columns={'Atleta': 'Métricas'}, inplace=True)
             tabela_2 = tabela_2.transpose()
             st.markdown("<h4 style='text-align: center;'>Desempenho do Jogador na Liga/Temporada</h4>", unsafe_allow_html=True)
+
+            # Define function to color and label cells in the "Percentil na Liga" column
+            def color_percentil(val):
+                # Color map for "Blues" from Matplotlib
+                cmap = plt.get_cmap('Blues')
+
+                # Define categories and corresponding thresholds
+                if val >= 90:
+                    color = cmap(0.8)  # "Elite"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 75 <= val < 90:
+                    color = cmap(0.65)  # "Destaque"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 60 <= val < 75:
+                    color = cmap(0.5)  # "Razoável"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 40 <= val < 60:
+                    color = cmap(0.35)  # "Mediano"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                else:
+                    color = cmap(0.2)  # "Fraco"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
 
 
             # Styling DataFrame using Pandas
@@ -5925,7 +6138,11 @@ elif choose == "Ranking de Jogadores":
                 first_column_name = df.columns[1]  # Adjusted for the added index column
                 # Ensure 'Rating' is rounded and formatted to 2 decimal places during styling
                 formatter = {first_column_name: "{:.2f}", "Média da Liga": "{:.2f}", "Percentil na Liga": "{:.0f}"}
-                return df.style.format(formatter).set_table_styles(
+                # Apply the color formatting to "Percentil na Liga" column
+                styled_df = df.style.format(formatter).applymap(color_percentil, subset=["Percentil na Liga"])
+
+                # Additional table styles
+                styled_df = styled_df.set_table_styles(
                     [{
                         'selector': 'thead th',
                         'props': [('font-weight', 'bold'),
@@ -5953,6 +6170,8 @@ elif choose == "Ranking de Jogadores":
                     }]
                 ).set_properties(**{'padding': '2px', 'font-size': '15px', 'margin': 'auto'})  # Adjust this for centering
 
+                return styled_df
+
             # Displaying in Streamlit
             def main():
                 # Convert the styled DataFrame to HTML, ensure the index is shown and wrapped in a center-aligned div
@@ -5962,6 +6181,37 @@ elif choose == "Ranking de Jogadores":
 
             if __name__ == '__main__':
                 main()
+
+            # Function to plot the legend for the 5 colors from the Blues colormap
+            def plot_color_legend():
+                # Create a list of 5 normalized values (from lowest to highest)
+                values = np.linspace(0, 0.5, 5)  # Normalized between 0 and 0.5 to cover half of the Blues colormap
+                
+                # Generate corresponding colors using the 'Blues' colormap
+                colors = plt.cm.Blues(values)
+                
+                # Labels for the legend (highest to lowest)
+                labels = ['Elite (>90)', 'Destaque (75-90)', 'Razoável (60-75)', 'Mediano (40-60)', 'Frágil (<40)']
+                
+                # Plot the legend horizontally with a smaller size
+                fig, ax = plt.subplots(figsize=(6, 0.2))  # Smaller layout
+                for i, (label, color) in enumerate(zip(labels[::-1], colors)):  # Reverse labels for display
+                    ax.add_patch(plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black'))  # Draw rectangle
+                    ax.text(i + 0.5, 0.5, label, ha='center', va='center', fontsize=7)  # Add text inside the rectangles
+                
+                ax.set_xlim(0, 5)
+                ax.set_ylim(0, 1)
+                ax.axis('off')  # Remove axes
+                
+                # Add an arrow pointing from "Highest" to "Lowest"
+                ax.annotate('', xy=(5, 1), xytext=(0, 1),
+                            arrowprops=dict(facecolor='black', shrink=0.04, width=1.3, headwidth=5))
+
+                return fig
+
+            # Call the function to plot the legend and display it in Streamlit
+            legend_fig = plot_color_legend()
+            st.pyplot(legend_fig)
 
             ##################################################################################################################### 
             #####################################################################################################################
@@ -6378,12 +6628,32 @@ elif choose == "Ranking de Jogadores":
             tabela_d['Atleta'] = Atleta 
             tabela_d.insert(0, 'Atleta', tabela_d.pop('Atleta'))
             tabela_2 = pd.concat([tabela_2, tabela_c, tabela_d]).reset_index(drop=True)
-#                        tabela_2 = tabela_2.append(tabela_c).reset_index()
-#                        tabela_2 = tabela_2.append(tabela_d).reset_index()
+            tabela_2.rename(columns={'Atleta': 'Métricas'}, inplace=True)
             tabela_2 = tabela_2.transpose()
-#                        tabela_2 = tabela_2.drop([tabela_2.index[0], tabela_2.index[1]])
+
             st.markdown("<h4 style='text-align: center;'>Desempenho do Jogador na Liga/Temporada</h4>", unsafe_allow_html=True)
-            #st.dataframe(tabela_2, use_container_width=True)
+
+            # Define function to color and label cells in the "Percentil na Liga" column
+            def color_percentil(val):
+                # Color map for "Blues" from Matplotlib
+                cmap = plt.get_cmap('Blues')
+
+                # Define categories and corresponding thresholds
+                if val >= 90:
+                    color = cmap(0.8)  # "Elite"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 75 <= val < 90:
+                    color = cmap(0.65)  # "Destaque"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 60 <= val < 75:
+                    color = cmap(0.5)  # "Razoável"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 40 <= val < 60:
+                    color = cmap(0.35)  # "Mediano"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                else:
+                    color = cmap(0.2)  # "Fraco"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
 
             # Styling DataFrame using Pandas
             def style_table(df):
@@ -6394,7 +6664,11 @@ elif choose == "Ranking de Jogadores":
                 first_column_name = df.columns[1]  # Adjusted for the added index column
                 # Ensure 'Rating' is rounded and formatted to 2 decimal places during styling
                 formatter = {first_column_name: "{:.2f}", "Média da Liga": "{:.2f}", "Percentil na Liga": "{:.0f}"}
-                return df.style.format(formatter).set_table_styles(
+                # Apply the color formatting to "Percentil na Liga" column
+                styled_df = df.style.format(formatter).applymap(color_percentil, subset=["Percentil na Liga"])
+
+                # Additional table styles
+                styled_df = styled_df.set_table_styles(
                     [{
                         'selector': 'thead th',
                         'props': [('font-weight', 'bold'),
@@ -6422,6 +6696,8 @@ elif choose == "Ranking de Jogadores":
                     }]
                 ).set_properties(**{'padding': '2px', 'font-size': '15px', 'margin': 'auto'})  # Adjust this for centering
 
+                return styled_df
+
             # Displaying in Streamlit
             def main():
                 #st.title("Your DataFrame")
@@ -6433,6 +6709,38 @@ elif choose == "Ranking de Jogadores":
 
             if __name__ == '__main__':
                 main()
+
+
+            # Function to plot the legend for the 5 colors from the Blues colormap
+            def plot_color_legend():
+                # Create a list of 5 normalized values (from lowest to highest)
+                values = np.linspace(0, 0.5, 5)  # Normalized between 0 and 0.5 to cover half of the Blues colormap
+                
+                # Generate corresponding colors using the 'Blues' colormap
+                colors = plt.cm.Blues(values)
+                
+                # Labels for the legend (highest to lowest)
+                labels = ['Elite (>90)', 'Destaque (75-90)', 'Razoável (60-75)', 'Mediano (40-60)', 'Frágil (<40)']
+                
+                # Plot the legend horizontally with a smaller size
+                fig, ax = plt.subplots(figsize=(6, 0.2))  # Smaller layout
+                for i, (label, color) in enumerate(zip(labels[::-1], colors)):  # Reverse labels for display
+                    ax.add_patch(plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black'))  # Draw rectangle
+                    ax.text(i + 0.5, 0.5, label, ha='center', va='center', fontsize=7)  # Add text inside the rectangles
+                
+                ax.set_xlim(0, 5)
+                ax.set_ylim(0, 1)
+                ax.axis('off')  # Remove axes
+                
+                # Add an arrow pointing from "Highest" to "Lowest"
+                ax.annotate('', xy=(5, 1), xytext=(0, 1),
+                            arrowprops=dict(facecolor='black', shrink=0.04, width=1.3, headwidth=5))
+
+                return fig
+
+            # Call the function to plot the legend and display it in Streamlit
+            legend_fig = plot_color_legend()
+            st.pyplot(legend_fig)
 
             ##################################################################################################################### 
             #####################################################################################################################
@@ -6841,12 +7149,31 @@ elif choose == "Ranking de Jogadores":
             tabela_d['Atleta'] = Atleta 
             tabela_d.insert(0, 'Atleta', tabela_d.pop('Atleta'))
             tabela_2 = pd.concat([tabela_2, tabela_c, tabela_d]).reset_index(drop=True)
-#                        tabela_2 = tabela_2.append(tabela_c).reset_index()
-#                        tabela_2 = tabela_2.append(tabela_d).reset_index()
+            tabela_2.rename(columns={'Atleta': 'Métricas'}, inplace=True)
             tabela_2 = tabela_2.transpose()
-#                        tabela_2 = tabela_2.drop([tabela_2.index[0], tabela_2.index[1]])
             st.markdown("<h4 style='text-align: center;'>Desempenho do Jogador na Liga/Temporada</h4>", unsafe_allow_html=True)
-            #st.dataframe(tabela_2, use_container_width=True)
+
+            # Define function to color and label cells in the "Percentil na Liga" column
+            def color_percentil(val):
+                # Color map for "Blues" from Matplotlib
+                cmap = plt.get_cmap('Blues')
+
+                # Define categories and corresponding thresholds
+                if val >= 90:
+                    color = cmap(0.8)  # "Elite"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 75 <= val < 90:
+                    color = cmap(0.65)  # "Destaque"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 60 <= val < 75:
+                    color = cmap(0.5)  # "Razoável"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 40 <= val < 60:
+                    color = cmap(0.35)  # "Mediano"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                else:
+                    color = cmap(0.2)  # "Fraco"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
 
             # Styling DataFrame using Pandas
             def style_table(df):
@@ -6857,7 +7184,12 @@ elif choose == "Ranking de Jogadores":
                 first_column_name = df.columns[1]  # Adjusted for the added index column
                 # Ensure 'Rating' is rounded and formatted to 2 decimal places during styling
                 formatter = {first_column_name: "{:.2f}", "Média da Liga": "{:.2f}", "Percentil na Liga": "{:.0f}"}
-                return df.style.format(formatter).set_table_styles(
+    
+                # Apply the color formatting to "Percentil na Liga" column
+                styled_df = df.style.format(formatter).applymap(color_percentil, subset=["Percentil na Liga"])
+
+                # Additional table styles
+                styled_df = styled_df.set_table_styles(
                     [{
                         'selector': 'thead th',
                         'props': [('font-weight', 'bold'),
@@ -6884,6 +7216,7 @@ elif choose == "Ranking de Jogadores":
                                 ('text-align', 'left')]
                     }]
                 ).set_properties(**{'padding': '2px', 'font-size': '15px', 'margin': 'auto'})  # Adjust this for centering
+                return styled_df
 
             # Displaying in Streamlit
             def main():
@@ -6896,6 +7229,38 @@ elif choose == "Ranking de Jogadores":
 
             if __name__ == '__main__':
                 main()
+
+
+            # Function to plot the legend for the 5 colors from the Blues colormap
+            def plot_color_legend():
+                # Create a list of 5 normalized values (from lowest to highest)
+                values = np.linspace(0, 0.5, 5)  # Normalized between 0 and 0.5 to cover half of the Blues colormap
+                
+                # Generate corresponding colors using the 'Blues' colormap
+                colors = plt.cm.Blues(values)
+                
+                # Labels for the legend (highest to lowest)
+                labels = ['Elite (>90)', 'Destaque (75-90)', 'Razoável (60-75)', 'Mediano (40-60)', 'Frágil (<40)']
+                
+                # Plot the legend horizontally with a smaller size
+                fig, ax = plt.subplots(figsize=(6, 0.2))  # Smaller layout
+                for i, (label, color) in enumerate(zip(labels[::-1], colors)):  # Reverse labels for display
+                    ax.add_patch(plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black'))  # Draw rectangle
+                    ax.text(i + 0.5, 0.5, label, ha='center', va='center', fontsize=7)  # Add text inside the rectangles
+                
+                ax.set_xlim(0, 5)
+                ax.set_ylim(0, 1)
+                ax.axis('off')  # Remove axes
+                
+                # Add an arrow pointing from "Highest" to "Lowest"
+                ax.annotate('', xy=(5, 1), xytext=(0, 1),
+                            arrowprops=dict(facecolor='black', shrink=0.04, width=1.3, headwidth=5))
+
+                return fig
+
+            # Call the function to plot the legend and display it in Streamlit
+            legend_fig = plot_color_legend()
+            st.pyplot(legend_fig)
 
             ##################################################################################################################### 
             #####################################################################################################################
@@ -7238,12 +7603,33 @@ elif choose == "Ranking de Jogadores":
             tabela_d['Atleta'] = Atleta 
             tabela_d.insert(0, 'Atleta', tabela_d.pop('Atleta'))
             tabela_2 = pd.concat([tabela_2, tabela_c, tabela_d]).reset_index(drop=True)
-#                        tabela_2 = tabela_2.append(tabela_c).reset_index()
-#                        tabela_2 = tabela_2.append(tabela_d).reset_index()
+            tabela_2.rename(columns={'Atleta': 'Métricas'}, inplace=True)
             tabela_2 = tabela_2.transpose()
-#                        tabela_2 = tabela_2.drop([tabela_2.index[0], tabela_2.index[1]])
+
             st.markdown("<h4 style='text-align: center;'>Desempenho do Jogador na Liga/Temporada</h4>", unsafe_allow_html=True)
-            #st.dataframe(tabela_2, use_container_width=True)
+
+            # Define function to color and label cells in the "Percentil na Liga" column
+            def color_percentil(val):
+                # Color map for "Blues" from Matplotlib
+                cmap = plt.get_cmap('Blues')
+
+                # Define categories and corresponding thresholds
+                if val >= 90:
+                    color = cmap(0.8)  # "Elite"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 75 <= val < 90:
+                    color = cmap(0.65)  # "Destaque"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 60 <= val < 75:
+                    color = cmap(0.5)  # "Razoável"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 40 <= val < 60:
+                    color = cmap(0.35)  # "Mediano"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                else:
+                    color = cmap(0.2)  # "Fraco"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+
 
             # Styling DataFrame using Pandas
             def style_table(df):
@@ -7254,7 +7640,12 @@ elif choose == "Ranking de Jogadores":
                 first_column_name = df.columns[1]  # Adjusted for the added index column
                 # Ensure 'Rating' is rounded and formatted to 2 decimal places during styling
                 formatter = {first_column_name: "{:.2f}", "Média da Liga": "{:.2f}", "Percentil na Liga": "{:.0f}"}
-                return df.style.format(formatter).set_table_styles(
+
+                # Apply the color formatting to "Percentil na Liga" column
+                styled_df = df.style.format(formatter).applymap(color_percentil, subset=["Percentil na Liga"])
+
+                # Additional table styles
+                styled_df = styled_df.set_table_styles(
                     [{
                         'selector': 'thead th',
                         'props': [('font-weight', 'bold'),
@@ -7282,6 +7673,8 @@ elif choose == "Ranking de Jogadores":
                     }]
                 ).set_properties(**{'padding': '2px', 'font-size': '15px', 'margin': 'auto'})  # Adjust this for centering
 
+                return styled_df
+
             # Displaying in Streamlit
             def main():
                 #st.title("Your DataFrame")
@@ -7293,6 +7686,37 @@ elif choose == "Ranking de Jogadores":
 
             if __name__ == '__main__':
                 main()
+
+            # Function to plot the legend for the 5 colors from the Blues colormap
+            def plot_color_legend():
+                # Create a list of 5 normalized values (from lowest to highest)
+                values = np.linspace(0, 0.5, 5)  # Normalized between 0 and 0.5 to cover half of the Blues colormap
+                
+                # Generate corresponding colors using the 'Blues' colormap
+                colors = plt.cm.Blues(values)
+                
+                # Labels for the legend (highest to lowest)
+                labels = ['Elite (>90)', 'Destaque (75-90)', 'Razoável (60-75)', 'Mediano (40-60)', 'Frágil (<40)']
+                
+                # Plot the legend horizontally with a smaller size
+                fig, ax = plt.subplots(figsize=(6, 0.2))  # Smaller layout
+                for i, (label, color) in enumerate(zip(labels[::-1], colors)):  # Reverse labels for display
+                    ax.add_patch(plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black'))  # Draw rectangle
+                    ax.text(i + 0.5, 0.5, label, ha='center', va='center', fontsize=7)  # Add text inside the rectangles
+                
+                ax.set_xlim(0, 5)
+                ax.set_ylim(0, 1)
+                ax.axis('off')  # Remove axes
+                
+                # Add an arrow pointing from "Highest" to "Lowest"
+                ax.annotate('', xy=(5, 1), xytext=(0, 1),
+                            arrowprops=dict(facecolor='black', shrink=0.04, width=1.3, headwidth=5))
+
+                return fig
+
+            # Call the function to plot the legend and display it in Streamlit
+            legend_fig = plot_color_legend()
+            st.pyplot(legend_fig)
 
             ##################################################################################################################### 
             #####################################################################################################################
@@ -7569,12 +7993,33 @@ elif choose == "Ranking de Jogadores":
             tabela_d['Atleta'] = Atleta 
             tabela_d.insert(0, 'Atleta', tabela_d.pop('Atleta'))
             tabela_2 = pd.concat([tabela_2, tabela_c, tabela_d]).reset_index(drop=True)
-#                        tabela_2 = tabela_2.append(tabela_c).reset_index()
-#                        tabela_2 = tabela_2.append(tabela_d).reset_index()
+            tabela_2.rename(columns={'Atleta': 'Métricas'}, inplace=True)
             tabela_2 = tabela_2.transpose()
-#                        tabela_2 = tabela_2.drop([tabela_2.index[0], tabela_2.index[1]])
+
             st.markdown("<h4 style='text-align: center;'>Desempenho do Jogador na Liga/Temporada</h4>", unsafe_allow_html=True)
-            #st.dataframe(tabela_2, use_container_width=True)
+
+            # Define function to color and label cells in the "Percentil na Liga" column
+            def color_percentil(val):
+                # Color map for "Blues" from Matplotlib
+                cmap = plt.get_cmap('Blues')
+
+                # Define categories and corresponding thresholds
+                if val >= 90:
+                    color = cmap(0.8)  # "Elite"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 75 <= val < 90:
+                    color = cmap(0.65)  # "Destaque"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 60 <= val < 75:
+                    color = cmap(0.5)  # "Razoável"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 40 <= val < 60:
+                    color = cmap(0.35)  # "Mediano"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                else:
+                    color = cmap(0.2)  # "Fraco"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+
 
             # Styling DataFrame using Pandas
             def style_table(df):
@@ -7585,7 +8030,13 @@ elif choose == "Ranking de Jogadores":
                 first_column_name = df.columns[1]  # Adjusted for the added index column
                 # Ensure 'Rating' is rounded and formatted to 2 decimal places during styling
                 formatter = {first_column_name: "{:.2f}", "Média da Liga": "{:.2f}", "Percentil na Liga": "{:.0f}"}
-                return df.style.format(formatter).set_table_styles(
+
+    
+                # Apply the color formatting to "Percentil na Liga" column
+                styled_df = df.style.format(formatter).applymap(color_percentil, subset=["Percentil na Liga"])
+
+                # Additional table styles
+                styled_df = styled_df.set_table_styles(
                     [{
                         'selector': 'thead th',
                         'props': [('font-weight', 'bold'),
@@ -7612,6 +8063,8 @@ elif choose == "Ranking de Jogadores":
                                 ('text-align', 'left')]
                     }]
                 ).set_properties(**{'padding': '2px', 'font-size': '15px', 'margin': 'auto'})  # Adjust this for centering
+            
+                return styled_df
 
             # Displaying in Streamlit
             def main():
@@ -7624,6 +8077,38 @@ elif choose == "Ranking de Jogadores":
 
             if __name__ == '__main__':
                 main()
+
+
+            # Function to plot the legend for the 5 colors from the Blues colormap
+            def plot_color_legend():
+                # Create a list of 5 normalized values (from lowest to highest)
+                values = np.linspace(0, 0.5, 5)  # Normalized between 0 and 0.5 to cover half of the Blues colormap
+                
+                # Generate corresponding colors using the 'Blues' colormap
+                colors = plt.cm.Blues(values)
+                
+                # Labels for the legend (highest to lowest)
+                labels = ['Elite (>90)', 'Destaque (75-90)', 'Razoável (60-75)', 'Mediano (40-60)', 'Frágil (<40)']
+                
+                # Plot the legend horizontally with a smaller size
+                fig, ax = plt.subplots(figsize=(6, 0.2))  # Smaller layout
+                for i, (label, color) in enumerate(zip(labels[::-1], colors)):  # Reverse labels for display
+                    ax.add_patch(plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black'))  # Draw rectangle
+                    ax.text(i + 0.5, 0.5, label, ha='center', va='center', fontsize=7)  # Add text inside the rectangles
+                
+                ax.set_xlim(0, 5)
+                ax.set_ylim(0, 1)
+                ax.axis('off')  # Remove axes
+                
+                # Add an arrow pointing from "Highest" to "Lowest"
+                ax.annotate('', xy=(5, 1), xytext=(0, 1),
+                            arrowprops=dict(facecolor='black', shrink=0.04, width=1.3, headwidth=5))
+
+                return fig
+
+            # Call the function to plot the legend and display it in Streamlit
+            legend_fig = plot_color_legend()
+            st.pyplot(legend_fig)
 
             ##################################################################################################################### 
             #####################################################################################################################
@@ -7978,12 +8463,32 @@ elif choose == "Ranking de Jogadores":
             tabela_d['Atleta'] = Atleta 
             tabela_d.insert(0, 'Atleta', tabela_d.pop('Atleta'))
             tabela_2 = pd.concat([tabela_2, tabela_c, tabela_d]).reset_index(drop=True)
-#                        tabela_2 = tabela_2.append(tabela_c).reset_index()
-#                        tabela_2 = tabela_2.append(tabela_d).reset_index()
+            tabela_2.rename(columns={'Atleta': 'Métricas'}, inplace=True)
             tabela_2 = tabela_2.transpose()
-#                        tabela_2 = tabela_2.drop([tabela_2.index[0], tabela_2.index[1]])
+
             st.markdown("<h4 style='text-align: center;'>Desempenho do Jogador na Liga/Temporada</h4>", unsafe_allow_html=True)
-            #st.dataframe(tabela_2, use_container_width=True)
+
+            # Define function to color and label cells in the "Percentil na Liga" column
+            def color_percentil(val):
+                # Color map for "Blues" from Matplotlib
+                cmap = plt.get_cmap('Blues')
+
+                # Define categories and corresponding thresholds
+                if val >= 90:
+                    color = cmap(0.8)  # "Elite"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 75 <= val < 90:
+                    color = cmap(0.65)  # "Destaque"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 60 <= val < 75:
+                    color = cmap(0.5)  # "Razoável"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 40 <= val < 60:
+                    color = cmap(0.35)  # "Mediano"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                else:
+                    color = cmap(0.2)  # "Fraco"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
 
             # Styling DataFrame using Pandas
             def style_table(df):
@@ -7994,7 +8499,11 @@ elif choose == "Ranking de Jogadores":
                 first_column_name = df.columns[1]  # Adjusted for the added index column
                 # Ensure 'Rating' is rounded and formatted to 2 decimal places during styling
                 formatter = {first_column_name: "{:.2f}", "Média da Liga": "{:.2f}", "Percentil na Liga": "{:.0f}"}
-                return df.style.format(formatter).set_table_styles(
+                # Apply the color formatting to "Percentil na Liga" column
+                styled_df = df.style.format(formatter).applymap(color_percentil, subset=["Percentil na Liga"])
+
+                # Additional table styles
+                styled_df = styled_df.set_table_styles(
                     [{
                         'selector': 'thead th',
                         'props': [('font-weight', 'bold'),
@@ -8021,7 +8530,7 @@ elif choose == "Ranking de Jogadores":
                                 ('text-align', 'left')]
                     }]
                 ).set_properties(**{'padding': '2px', 'font-size': '15px', 'margin': 'auto'})  # Adjust this for centering
-
+                return styled_df
             # Displaying in Streamlit
             def main():
                 #st.title("Your DataFrame")
@@ -8033,6 +8542,38 @@ elif choose == "Ranking de Jogadores":
 
             if __name__ == '__main__':
                 main()
+
+
+            # Function to plot the legend for the 5 colors from the Blues colormap
+            def plot_color_legend():
+                # Create a list of 5 normalized values (from lowest to highest)
+                values = np.linspace(0, 0.5, 5)  # Normalized between 0 and 0.5 to cover half of the Blues colormap
+                
+                # Generate corresponding colors using the 'Blues' colormap
+                colors = plt.cm.Blues(values)
+                
+                # Labels for the legend (highest to lowest)
+                labels = ['Elite (>90)', 'Destaque (75-90)', 'Razoável (60-75)', 'Mediano (40-60)', 'Frágil (<40)']
+                
+                # Plot the legend horizontally with a smaller size
+                fig, ax = plt.subplots(figsize=(6, 0.2))  # Smaller layout
+                for i, (label, color) in enumerate(zip(labels[::-1], colors)):  # Reverse labels for display
+                    ax.add_patch(plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black'))  # Draw rectangle
+                    ax.text(i + 0.5, 0.5, label, ha='center', va='center', fontsize=7)  # Add text inside the rectangles
+                
+                ax.set_xlim(0, 5)
+                ax.set_ylim(0, 1)
+                ax.axis('off')  # Remove axes
+                
+                # Add an arrow pointing from "Highest" to "Lowest"
+                ax.annotate('', xy=(5, 1), xytext=(0, 1),
+                            arrowprops=dict(facecolor='black', shrink=0.04, width=1.3, headwidth=5))
+
+                return fig
+
+            # Call the function to plot the legend and display it in Streamlit
+            legend_fig = plot_color_legend()
+            st.pyplot(legend_fig)
 
             ##################################################################################################################### 
             #####################################################################################################################
@@ -8303,12 +8844,33 @@ elif choose == "Ranking de Jogadores":
             tabela_d['Atleta'] = Atleta 
             tabela_d.insert(0, 'Atleta', tabela_d.pop('Atleta'))
             tabela_2 = pd.concat([tabela_2, tabela_c, tabela_d]).reset_index(drop=True)
-#                        tabela_2 = tabela_2.append(tabela_c).reset_index()
-#                        tabela_2 = tabela_2.append(tabela_d).reset_index()
+            tabela_2.rename(columns={'Atleta': 'Métricas'}, inplace=True)
             tabela_2 = tabela_2.transpose()
-#                        tabela_2 = tabela_2.drop([tabela_2.index[0], tabela_2.index[1]])
+
             st.markdown("<h4 style='text-align: center;'>Desempenho do Jogador na Liga/Temporada</h4>", unsafe_allow_html=True)
-            #st.dataframe(tabela_2, use_container_width=True)
+
+            # Define function to color and label cells in the "Percentil na Liga" column
+            def color_percentil(val):
+                # Color map for "Blues" from Matplotlib
+                cmap = plt.get_cmap('Blues')
+
+                # Define categories and corresponding thresholds
+                if val >= 90:
+                    color = cmap(0.8)  # "Elite"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 75 <= val < 90:
+                    color = cmap(0.65)  # "Destaque"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 60 <= val < 75:
+                    color = cmap(0.5)  # "Razoável"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 40 <= val < 60:
+                    color = cmap(0.35)  # "Mediano"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                else:
+                    color = cmap(0.2)  # "Fraco"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+
 
             # Styling DataFrame using Pandas
             def style_table(df):
@@ -8319,7 +8881,12 @@ elif choose == "Ranking de Jogadores":
                 first_column_name = df.columns[1]  # Adjusted for the added index column
                 # Ensure 'Rating' is rounded and formatted to 2 decimal places during styling
                 formatter = {first_column_name: "{:.2f}", "Média da Liga": "{:.2f}", "Percentil na Liga": "{:.0f}"}
-                return df.style.format(formatter).set_table_styles(
+
+                # Apply the color formatting to "Percentil na Liga" column
+                styled_df = df.style.format(formatter).applymap(color_percentil, subset=["Percentil na Liga"])
+
+                # Additional table styles
+                styled_df = styled_df.set_table_styles(
                     [{
                         'selector': 'thead th',
                         'props': [('font-weight', 'bold'),
@@ -8347,6 +8914,8 @@ elif choose == "Ranking de Jogadores":
                     }]
                 ).set_properties(**{'padding': '2px', 'font-size': '15px', 'margin': 'auto'})  # Adjust this for centering
 
+                return styled_df
+
             # Displaying in Streamlit
             def main():
                 #st.title("Your DataFrame")
@@ -8358,6 +8927,38 @@ elif choose == "Ranking de Jogadores":
 
             if __name__ == '__main__':
                 main()
+
+
+            # Function to plot the legend for the 5 colors from the Blues colormap
+            def plot_color_legend():
+                # Create a list of 5 normalized values (from lowest to highest)
+                values = np.linspace(0, 0.5, 5)  # Normalized between 0 and 0.5 to cover half of the Blues colormap
+                
+                # Generate corresponding colors using the 'Blues' colormap
+                colors = plt.cm.Blues(values)
+                
+                # Labels for the legend (highest to lowest)
+                labels = ['Elite (>90)', 'Destaque (75-90)', 'Razoável (60-75)', 'Mediano (40-60)', 'Frágil (<40)']
+                
+                # Plot the legend horizontally with a smaller size
+                fig, ax = plt.subplots(figsize=(6, 0.2))  # Smaller layout
+                for i, (label, color) in enumerate(zip(labels[::-1], colors)):  # Reverse labels for display
+                    ax.add_patch(plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black'))  # Draw rectangle
+                    ax.text(i + 0.5, 0.5, label, ha='center', va='center', fontsize=7)  # Add text inside the rectangles
+                
+                ax.set_xlim(0, 5)
+                ax.set_ylim(0, 1)
+                ax.axis('off')  # Remove axes
+                
+                # Add an arrow pointing from "Highest" to "Lowest"
+                ax.annotate('', xy=(5, 1), xytext=(0, 1),
+                            arrowprops=dict(facecolor='black', shrink=0.04, width=1.3, headwidth=5))
+
+                return fig
+
+            # Call the function to plot the legend and display it in Streamlit
+            legend_fig = plot_color_legend()
+            st.pyplot(legend_fig)
 
             ##################################################################################################################### 
             #####################################################################################################################
@@ -8583,12 +9184,32 @@ elif choose == "Ranking de Jogadores":
             tabela_d['Atleta'] = Atleta 
             tabela_d.insert(0, 'Atleta', tabela_d.pop('Atleta'))
             tabela_2 = pd.concat([tabela_2, tabela_c, tabela_d]).reset_index(drop=True)
-#                        tabela_2 = tabela_2.append(tabela_c).reset_index()
-#                        tabela_2 = tabela_2.append(tabela_d).reset_index()
+            tabela_2.rename(columns={'Atleta': 'Métricas'}, inplace=True)
             tabela_2 = tabela_2.transpose()
-#                        tabela_2 = tabela_2.drop([tabela_2.index[0], tabela_2.index[1]])
+
             st.markdown("<h4 style='text-align: center;'>Desempenho do Jogador na Liga/Temporada</h4>", unsafe_allow_html=True)
-            #st.dataframe(tabela_2, use_container_width=True)
+
+            # Define function to color and label cells in the "Percentil na Liga" column
+            def color_percentil(val):
+                # Color map for "Blues" from Matplotlib
+                cmap = plt.get_cmap('Blues')
+
+                # Define categories and corresponding thresholds
+                if val >= 90:
+                    color = cmap(0.8)  # "Elite"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 75 <= val < 90:
+                    color = cmap(0.65)  # "Destaque"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 60 <= val < 75:
+                    color = cmap(0.5)  # "Razoável"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 40 <= val < 60:
+                    color = cmap(0.35)  # "Mediano"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                else:
+                    color = cmap(0.2)  # "Fraco"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
 
             # Styling DataFrame using Pandas
             def style_table(df):
@@ -8599,7 +9220,11 @@ elif choose == "Ranking de Jogadores":
                 first_column_name = df.columns[1]  # Adjusted for the added index column
                 # Ensure 'Rating' is rounded and formatted to 2 decimal places during styling
                 formatter = {first_column_name: "{:.2f}", "Média da Liga": "{:.2f}", "Percentil na Liga": "{:.0f}"}
-                return df.style.format(formatter).set_table_styles(
+                # Apply the color formatting to "Percentil na Liga" column
+                styled_df = df.style.format(formatter).applymap(color_percentil, subset=["Percentil na Liga"])
+
+                # Additional table styles
+                styled_df = styled_df.set_table_styles(
                     [{
                         'selector': 'thead th',
                         'props': [('font-weight', 'bold'),
@@ -8627,6 +9252,8 @@ elif choose == "Ranking de Jogadores":
                     }]
                 ).set_properties(**{'padding': '2px', 'font-size': '15px', 'margin': 'auto'})  # Adjust this for centering
 
+                return styled_df
+        
             # Displaying in Streamlit
             def main():
                 #st.title("Your DataFrame")
@@ -8638,6 +9265,38 @@ elif choose == "Ranking de Jogadores":
 
             if __name__ == '__main__':
                 main()
+
+
+            # Function to plot the legend for the 5 colors from the Blues colormap
+            def plot_color_legend():
+                # Create a list of 5 normalized values (from lowest to highest)
+                values = np.linspace(0, 0.5, 5)  # Normalized between 0 and 0.5 to cover half of the Blues colormap
+                
+                # Generate corresponding colors using the 'Blues' colormap
+                colors = plt.cm.Blues(values)
+                
+                # Labels for the legend (highest to lowest)
+                labels = ['Elite (>90)', 'Destaque (75-90)', 'Razoável (60-75)', 'Mediano (40-60)', 'Frágil (<40)']
+                
+                # Plot the legend horizontally with a smaller size
+                fig, ax = plt.subplots(figsize=(6, 0.2))  # Smaller layout
+                for i, (label, color) in enumerate(zip(labels[::-1], colors)):  # Reverse labels for display
+                    ax.add_patch(plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black'))  # Draw rectangle
+                    ax.text(i + 0.5, 0.5, label, ha='center', va='center', fontsize=7)  # Add text inside the rectangles
+                
+                ax.set_xlim(0, 5)
+                ax.set_ylim(0, 1)
+                ax.axis('off')  # Remove axes
+                
+                # Add an arrow pointing from "Highest" to "Lowest"
+                ax.annotate('', xy=(5, 1), xytext=(0, 1),
+                            arrowprops=dict(facecolor='black', shrink=0.04, width=1.3, headwidth=5))
+
+                return fig
+
+            # Call the function to plot the legend and display it in Streamlit
+            legend_fig = plot_color_legend()
+            st.pyplot(legend_fig)
 
             #####################################################################################################################
             #####################################################################################################################
@@ -8985,11 +9644,34 @@ elif choose == "Ranking de Jogadores":
             tabela_d['Atleta'] = Atleta 
             tabela_d.insert(0, 'Atleta', tabela_d.pop('Atleta'))
             tabela_2 = pd.concat([tabela_2, tabela_c, tabela_d]).reset_index(drop=True)
+            tabela_2.rename(columns={'Atleta': 'Métricas'}, inplace=True)
             tabela_2 = tabela_2.transpose()
             tabela_2 = tabela_2.drop(tabela_2.index[-1])
 
             st.markdown("<h4 style='text-align: center;'>Desempenho do Jogador na Liga/Temporada</h4>", unsafe_allow_html=True)
             #st.dataframe(tabela_2, use_container_width=True)
+
+            # Define function to color and label cells in the "Percentil na Liga" column
+            def color_percentil(val):
+                # Color map for "Blues" from Matplotlib
+                cmap = plt.get_cmap('Blues')
+
+                # Define categories and corresponding thresholds
+                if val >= 90:
+                    color = cmap(0.8)  # "Elite"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 75 <= val < 90:
+                    color = cmap(0.65)  # "Destaque"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 60 <= val < 75:
+                    color = cmap(0.5)  # "Razoável"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 40 <= val < 60:
+                    color = cmap(0.35)  # "Mediano"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                else:
+                    color = cmap(0.2)  # "Fraco"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
 
             # Styling DataFrame using Pandas
             def style_table(df):
@@ -9000,7 +9682,12 @@ elif choose == "Ranking de Jogadores":
                 first_column_name = df.columns[1]  # Adjusted for the added index column
                 # Ensure 'Rating' is rounded and formatted to 2 decimal places during styling
                 formatter = {first_column_name: "{:.2f}", "Média da Liga": "{:.2f}", "Percentil na Liga": "{:.0f}"}
-                return df.style.format(formatter).set_table_styles(
+    
+                # Apply the color formatting to "Percentil na Liga" column
+                styled_df = df.style.format(formatter).applymap(color_percentil, subset=["Percentil na Liga"])
+
+                # Additional table styles
+                styled_df = styled_df.set_table_styles(
                     [{
                         'selector': 'thead th',
                         'props': [('font-weight', 'bold'),
@@ -9028,6 +9715,8 @@ elif choose == "Ranking de Jogadores":
                     }]
                 ).set_properties(**{'padding': '2px', 'font-size': '15px', 'margin': 'auto'})  # Adjust this for centering
 
+                return styled_df
+
             # Displaying in Streamlit
             def main():
                 #st.title("Your DataFrame")
@@ -9039,6 +9728,38 @@ elif choose == "Ranking de Jogadores":
 
             if __name__ == '__main__':
                 main()
+
+
+            # Function to plot the legend for the 5 colors from the Blues colormap
+            def plot_color_legend():
+                # Create a list of 5 normalized values (from lowest to highest)
+                values = np.linspace(0, 0.5, 5)  # Normalized between 0 and 0.5 to cover half of the Blues colormap
+                
+                # Generate corresponding colors using the 'Blues' colormap
+                colors = plt.cm.Blues(values)
+                
+                # Labels for the legend (highest to lowest)
+                labels = ['Elite (>90)', 'Destaque (75-90)', 'Razoável (60-75)', 'Mediano (40-60)', 'Frágil (<40)']
+                
+                # Plot the legend horizontally with a smaller size
+                fig, ax = plt.subplots(figsize=(6, 0.2))  # Smaller layout
+                for i, (label, color) in enumerate(zip(labels[::-1], colors)):  # Reverse labels for display
+                    ax.add_patch(plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black'))  # Draw rectangle
+                    ax.text(i + 0.5, 0.5, label, ha='center', va='center', fontsize=7)  # Add text inside the rectangles
+                
+                ax.set_xlim(0, 5)
+                ax.set_ylim(0, 1)
+                ax.axis('off')  # Remove axes
+                
+                # Add an arrow pointing from "Highest" to "Lowest"
+                ax.annotate('', xy=(5, 1), xytext=(0, 1),
+                            arrowprops=dict(facecolor='black', shrink=0.04, width=1.3, headwidth=5))
+
+                return fig
+
+            # Call the function to plot the legend and display it in Streamlit
+            legend_fig = plot_color_legend()
+            st.pyplot(legend_fig)
 
             ##################################################################################################################### 
             #####################################################################################################################
@@ -9267,12 +9988,32 @@ elif choose == "Ranking de Jogadores":
             tabela_d['Atleta'] = Atleta 
             tabela_d.insert(0, 'Atleta', tabela_d.pop('Atleta'))
             tabela_2 = pd.concat([tabela_2, tabela_c, tabela_d]).reset_index(drop=True)
-#                        tabela_2 = tabela_2.append(tabela_c).reset_index()
-#                        tabela_2 = tabela_2.append(tabela_d).reset_index()
+            tabela_2.rename(columns={'Atleta': 'Métricas'}, inplace=True)
             tabela_2 = tabela_2.transpose()
-#                        tabela_2 = tabela_2.drop([tabela_2.index[0], tabela_2.index[1]])
+
             st.markdown("<h4 style='text-align: center;'>Desempenho do Jogador na Liga/Temporada</h4>", unsafe_allow_html=True)
-            #st.dataframe(tabela_2, use_container_width=True)
+
+            # Define function to color and label cells in the "Percentil na Liga" column
+            def color_percentil(val):
+                # Color map for "Blues" from Matplotlib
+                cmap = plt.get_cmap('Blues')
+
+                # Define categories and corresponding thresholds
+                if val >= 90:
+                    color = cmap(0.8)  # "Elite"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 75 <= val < 90:
+                    color = cmap(0.65)  # "Destaque"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 60 <= val < 75:
+                    color = cmap(0.5)  # "Razoável"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 40 <= val < 60:
+                    color = cmap(0.35)  # "Mediano"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                else:
+                    color = cmap(0.2)  # "Fraco"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
 
             # Styling DataFrame using Pandas
             def style_table(df):
@@ -9283,7 +10024,11 @@ elif choose == "Ranking de Jogadores":
                 first_column_name = df.columns[1]  # Adjusted for the added index column
                 # Ensure 'Rating' is rounded and formatted to 2 decimal places during styling
                 formatter = {first_column_name: "{:.2f}", "Média da Liga": "{:.2f}", "Percentil na Liga": "{:.0f}"}
-                return df.style.format(formatter).set_table_styles(
+                # Apply the color formatting to "Percentil na Liga" column
+                styled_df = df.style.format(formatter).applymap(color_percentil, subset=["Percentil na Liga"])
+
+                # Additional table styles
+                styled_df = styled_df.set_table_styles(
                     [{
                         'selector': 'thead th',
                         'props': [('font-weight', 'bold'),
@@ -9310,6 +10055,7 @@ elif choose == "Ranking de Jogadores":
                                 ('text-align', 'left')]
                     }]
                 ).set_properties(**{'padding': '2px', 'font-size': '15px', 'margin': 'auto'})  # Adjust this for centering
+                return styled_df
 
             # Displaying in Streamlit
             def main():
@@ -9322,6 +10068,38 @@ elif choose == "Ranking de Jogadores":
 
             if __name__ == '__main__':
                 main()
+
+
+            # Function to plot the legend for the 5 colors from the Blues colormap
+            def plot_color_legend():
+                # Create a list of 5 normalized values (from lowest to highest)
+                values = np.linspace(0, 0.5, 5)  # Normalized between 0 and 0.5 to cover half of the Blues colormap
+                
+                # Generate corresponding colors using the 'Blues' colormap
+                colors = plt.cm.Blues(values)
+                
+                # Labels for the legend (highest to lowest)
+                labels = ['Elite (>90)', 'Destaque (75-90)', 'Razoável (60-75)', 'Mediano (40-60)', 'Frágil (<40)']
+                
+                # Plot the legend horizontally with a smaller size
+                fig, ax = plt.subplots(figsize=(6, 0.2))  # Smaller layout
+                for i, (label, color) in enumerate(zip(labels[::-1], colors)):  # Reverse labels for display
+                    ax.add_patch(plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black'))  # Draw rectangle
+                    ax.text(i + 0.5, 0.5, label, ha='center', va='center', fontsize=7)  # Add text inside the rectangles
+                
+                ax.set_xlim(0, 5)
+                ax.set_ylim(0, 1)
+                ax.axis('off')  # Remove axes
+                
+                # Add an arrow pointing from "Highest" to "Lowest"
+                ax.annotate('', xy=(5, 1), xytext=(0, 1),
+                            arrowprops=dict(facecolor='black', shrink=0.04, width=1.3, headwidth=5))
+
+                return fig
+
+            # Call the function to plot the legend and display it in Streamlit
+            legend_fig = plot_color_legend()
+            st.pyplot(legend_fig)
 
             ##################################################################################################################### 
             #####################################################################################################################
@@ -9596,12 +10374,32 @@ elif choose == "Ranking de Jogadores":
             tabela_d['Atleta'] = Atleta 
             tabela_d.insert(0, 'Atleta', tabela_d.pop('Atleta'))
             tabela_2 = pd.concat([tabela_2, tabela_c, tabela_d]).reset_index(drop=True)
-#                        tabela_2 = tabela_2.append(tabela_c).reset_index()
-#                        tabela_2 = tabela_2.append(tabela_d).reset_index()
+            tabela_2.rename(columns={'Atleta': 'Métricas'}, inplace=True)
             tabela_2 = tabela_2.transpose()
-#                        tabela_2 = tabela_2.drop([tabela_2.index[0], tabela_2.index[1]])
+
             st.markdown("<h4 style='text-align: center;'>Desempenho do Jogador na Liga/Temporada</h4>", unsafe_allow_html=True)
-            #st.dataframe(tabela_2, use_container_width=True)
+
+            # Define function to color and label cells in the "Percentil na Liga" column
+            def color_percentil(val):
+                # Color map for "Blues" from Matplotlib
+                cmap = plt.get_cmap('Blues')
+
+                # Define categories and corresponding thresholds
+                if val >= 90:
+                    color = cmap(0.8)  # "Elite"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 75 <= val < 90:
+                    color = cmap(0.65)  # "Destaque"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 60 <= val < 75:
+                    color = cmap(0.5)  # "Razoável"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                elif 40 <= val < 60:
+                    color = cmap(0.35)  # "Mediano"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
+                else:
+                    color = cmap(0.2)  # "Fraco"
+                    return f'background-color: rgba({color[0]*255}, {color[1]*255}, {color[2]*255}, 0.8); color: black'
 
             # Styling DataFrame using Pandas
             def style_table(df):
@@ -9612,7 +10410,12 @@ elif choose == "Ranking de Jogadores":
                 first_column_name = df.columns[1]  # Adjusted for the added index column
                 # Ensure 'Rating' is rounded and formatted to 2 decimal places during styling
                 formatter = {first_column_name: "{:.2f}", "Média da Liga": "{:.2f}", "Percentil na Liga": "{:.0f}"}
-                return df.style.format(formatter).set_table_styles(
+    
+                # Apply the color formatting to "Percentil na Liga" column
+                styled_df = df.style.format(formatter).applymap(color_percentil, subset=["Percentil na Liga"])
+
+                # Additional table styles
+                styled_df = styled_df.set_table_styles(
                     [{
                         'selector': 'thead th',
                         'props': [('font-weight', 'bold'),
@@ -9639,6 +10442,7 @@ elif choose == "Ranking de Jogadores":
                                 ('text-align', 'left')]
                     }]
                 ).set_properties(**{'padding': '2px', 'font-size': '15px', 'margin': 'auto'})  # Adjust this for centering
+                return styled_df
 
             # Displaying in Streamlit
             def main():
@@ -9651,6 +10455,38 @@ elif choose == "Ranking de Jogadores":
 
             if __name__ == '__main__':
                 main()
+
+
+            # Function to plot the legend for the 5 colors from the Blues colormap
+            def plot_color_legend():
+                # Create a list of 5 normalized values (from lowest to highest)
+                values = np.linspace(0, 0.5, 5)  # Normalized between 0 and 0.5 to cover half of the Blues colormap
+                
+                # Generate corresponding colors using the 'Blues' colormap
+                colors = plt.cm.Blues(values)
+                
+                # Labels for the legend (highest to lowest)
+                labels = ['Elite (>90)', 'Destaque (75-90)', 'Razoável (60-75)', 'Mediano (40-60)', 'Frágil (<40)']
+                
+                # Plot the legend horizontally with a smaller size
+                fig, ax = plt.subplots(figsize=(6, 0.2))  # Smaller layout
+                for i, (label, color) in enumerate(zip(labels[::-1], colors)):  # Reverse labels for display
+                    ax.add_patch(plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black'))  # Draw rectangle
+                    ax.text(i + 0.5, 0.5, label, ha='center', va='center', fontsize=7)  # Add text inside the rectangles
+                
+                ax.set_xlim(0, 5)
+                ax.set_ylim(0, 1)
+                ax.axis('off')  # Remove axes
+                
+                # Add an arrow pointing from "Highest" to "Lowest"
+                ax.annotate('', xy=(5, 1), xytext=(0, 1),
+                            arrowprops=dict(facecolor='black', shrink=0.04, width=1.3, headwidth=5))
+
+                return fig
+
+            # Call the function to plot the legend and display it in Streamlit
+            legend_fig = plot_color_legend()
+            st.pyplot(legend_fig)
 
             ##################################################################################################################### 
             #####################################################################################################################

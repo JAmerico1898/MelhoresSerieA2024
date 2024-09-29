@@ -4511,6 +4511,7 @@ elif choose == "Ranking de Jogadores":
                 main()
 
             # Function to plot the legend for the 5 colors from the Blues colormap
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -5135,6 +5136,8 @@ elif choose == "Ranking de Jogadores":
                 main()
 
             # Function to plot the legend for the 5 colors from the Blues colormap
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -5696,6 +5699,8 @@ elif choose == "Ranking de Jogadores":
                 main()
 
             # Function to plot the legend for the 5 colors from the Blues colormap
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -6238,6 +6243,8 @@ elif choose == "Ranking de Jogadores":
                 main()
 
             # Function to plot the legend for the 5 colors from the Blues colormap
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -6782,6 +6789,8 @@ elif choose == "Ranking de Jogadores":
 
 
             # Function to plot the legend for the 5 colors from the Blues colormap
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -7317,6 +7326,8 @@ elif choose == "Ranking de Jogadores":
 
 
             # Function to plot the legend for the 5 colors from the Blues colormap
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -7788,6 +7799,8 @@ elif choose == "Ranking de Jogadores":
                 main()
 
             # Function to plot the legend for the 5 colors from the Blues colormap
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -8194,6 +8207,8 @@ elif choose == "Ranking de Jogadores":
 
 
             # Function to plot the legend for the 5 colors from the Blues colormap
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -8674,6 +8689,8 @@ elif choose == "Ranking de Jogadores":
 
 
             # Function to plot the legend for the 5 colors from the Blues colormap
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -9073,6 +9090,8 @@ elif choose == "Ranking de Jogadores":
 
 
             # Function to plot the legend for the 5 colors from the Blues colormap
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -9426,6 +9445,8 @@ elif choose == "Ranking de Jogadores":
 
 
             # Function to plot the legend for the 5 colors from the Blues colormap
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -9904,6 +9925,8 @@ elif choose == "Ranking de Jogadores":
 
 
             # Function to plot the legend for the 5 colors from the Blues colormap
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -10259,6 +10282,8 @@ elif choose == "Ranking de Jogadores":
 
 
             # Function to plot the legend for the 5 colors from the Blues colormap
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -10661,6 +10686,8 @@ elif choose == "Ranking de Jogadores":
 
 
             # Function to plot the legend for the 5 colors from the Blues colormap
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -11098,6 +11125,7 @@ if choose == "Compare Jogadores":
 
                 return merged_df
 
+
             # Styling function for merged DataFrame
             def style_merged_table(merged_df):
                 # Create a Styler object from the merged DataFrame
@@ -11119,7 +11147,38 @@ if choose == "Compare Jogadores":
                 # Drop both percentile columns from the final display
                 styled_df = styled_df.hide(axis='columns', subset=['Player 1 Percentiles', 'Player 2 Percentiles'])
 
+                # Apply table styles as in the LAST CODE
+                styled_df = styled_df.set_table_styles(
+                    [{
+                        'selector': 'thead th',
+                        'props': [('font-weight', 'bold'),
+                                ('border-style', 'solid'),
+                                ('border-width', '0px 0px 2px 0px'),
+                                ('border-color', 'black')]
+                    }, {
+                        'selector': 'thead th:not(:first-child)',
+                        'props': [('text-align', 'center')]  # Center headers except the first
+                    }, {
+                        'selector': 'thead th:last-child',
+                        'props': [('color', 'black')]  # Make last column header black
+                    }, {
+                        'selector': 'td',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'center')]
+                    }, {
+                        'selector': 'th',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'left')]
+                    }]
+                ).set_properties(**{'padding': '2px', 'font-size': '15px'})
+
                 return styled_df
+
+
 
             # Main function to process the data
             def main():
@@ -11137,12 +11196,14 @@ if choose == "Compare Jogadores":
 
                 # Output the final table (for Streamlit, you'd use st.markdown)
                 st.markdown(center_html, unsafe_allow_html=True)
-
+                
             if __name__ == '__main__':
                 main()
 
 
             # Function to plot the legend using the same colors as the apply_colormap_based_on_value function
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -11472,6 +11533,35 @@ if choose == "Compare Jogadores":
                 # Drop both percentile columns from the final display
                 styled_df = styled_df.hide(axis='columns', subset=['Player 1 Percentiles', 'Player 2 Percentiles'])
 
+                # Apply table styles as in the LAST CODE
+                styled_df = styled_df.set_table_styles(
+                    [{
+                        'selector': 'thead th',
+                        'props': [('font-weight', 'bold'),
+                                ('border-style', 'solid'),
+                                ('border-width', '0px 0px 2px 0px'),
+                                ('border-color', 'black')]
+                    }, {
+                        'selector': 'thead th:not(:first-child)',
+                        'props': [('text-align', 'center')]  # Center headers except the first
+                    }, {
+                        'selector': 'thead th:last-child',
+                        'props': [('color', 'black')]  # Make last column header black
+                    }, {
+                        'selector': 'td',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'center')]
+                    }, {
+                        'selector': 'th',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'left')]
+                    }]
+                ).set_properties(**{'padding': '2px', 'font-size': '15px'})
+
                 return styled_df
 
             # Main function to process the data
@@ -11496,6 +11586,8 @@ if choose == "Compare Jogadores":
 
 
             # Function to plot the legend using the same colors as the apply_colormap_based_on_value function
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+            
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -11823,6 +11915,35 @@ if choose == "Compare Jogadores":
                 # Drop both percentile columns from the final display
                 styled_df = styled_df.hide(axis='columns', subset=['Player 1 Percentiles', 'Player 2 Percentiles'])
 
+                # Apply table styles as in the LAST CODE
+                styled_df = styled_df.set_table_styles(
+                    [{
+                        'selector': 'thead th',
+                        'props': [('font-weight', 'bold'),
+                                ('border-style', 'solid'),
+                                ('border-width', '0px 0px 2px 0px'),
+                                ('border-color', 'black')]
+                    }, {
+                        'selector': 'thead th:not(:first-child)',
+                        'props': [('text-align', 'center')]  # Center headers except the first
+                    }, {
+                        'selector': 'thead th:last-child',
+                        'props': [('color', 'black')]  # Make last column header black
+                    }, {
+                        'selector': 'td',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'center')]
+                    }, {
+                        'selector': 'th',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'left')]
+                    }]
+                ).set_properties(**{'padding': '2px', 'font-size': '15px'})
+
                 return styled_df
 
             # Main function to process the data
@@ -11847,6 +11968,8 @@ if choose == "Compare Jogadores":
 
 
             # Function to plot the legend using the same colors as the apply_colormap_based_on_value function
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -12174,6 +12297,35 @@ if choose == "Compare Jogadores":
                 # Drop both percentile columns from the final display
                 styled_df = styled_df.hide(axis='columns', subset=['Player 1 Percentiles', 'Player 2 Percentiles'])
 
+                # Apply table styles as in the LAST CODE
+                styled_df = styled_df.set_table_styles(
+                    [{
+                        'selector': 'thead th',
+                        'props': [('font-weight', 'bold'),
+                                ('border-style', 'solid'),
+                                ('border-width', '0px 0px 2px 0px'),
+                                ('border-color', 'black')]
+                    }, {
+                        'selector': 'thead th:not(:first-child)',
+                        'props': [('text-align', 'center')]  # Center headers except the first
+                    }, {
+                        'selector': 'thead th:last-child',
+                        'props': [('color', 'black')]  # Make last column header black
+                    }, {
+                        'selector': 'td',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'center')]
+                    }, {
+                        'selector': 'th',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'left')]
+                    }]
+                ).set_properties(**{'padding': '2px', 'font-size': '15px'})
+
                 return styled_df
 
             # Main function to process the data
@@ -12198,6 +12350,7 @@ if choose == "Compare Jogadores":
 
 
             # Function to plot the legend using the same colors as the apply_colormap_based_on_value function
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -12524,6 +12677,35 @@ if choose == "Compare Jogadores":
                 # Drop both percentile columns from the final display
                 styled_df = styled_df.hide(axis='columns', subset=['Player 1 Percentiles', 'Player 2 Percentiles'])
 
+                # Apply table styles as in the LAST CODE
+                styled_df = styled_df.set_table_styles(
+                    [{
+                        'selector': 'thead th',
+                        'props': [('font-weight', 'bold'),
+                                ('border-style', 'solid'),
+                                ('border-width', '0px 0px 2px 0px'),
+                                ('border-color', 'black')]
+                    }, {
+                        'selector': 'thead th:not(:first-child)',
+                        'props': [('text-align', 'center')]  # Center headers except the first
+                    }, {
+                        'selector': 'thead th:last-child',
+                        'props': [('color', 'black')]  # Make last column header black
+                    }, {
+                        'selector': 'td',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'center')]
+                    }, {
+                        'selector': 'th',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'left')]
+                    }]
+                ).set_properties(**{'padding': '2px', 'font-size': '15px'})
+
                 return styled_df
 
             # Main function to process the data
@@ -12548,6 +12730,8 @@ if choose == "Compare Jogadores":
 
 
             # Function to plot the legend using the same colors as the apply_colormap_based_on_value function
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -12823,6 +13007,35 @@ if choose == "Compare Jogadores":
                 # Drop both percentile columns from the final display
                 styled_df = styled_df.hide(axis='columns', subset=['Player 1 Percentiles', 'Player 2 Percentiles'])
 
+                # Apply table styles as in the LAST CODE
+                styled_df = styled_df.set_table_styles(
+                    [{
+                        'selector': 'thead th',
+                        'props': [('font-weight', 'bold'),
+                                ('border-style', 'solid'),
+                                ('border-width', '0px 0px 2px 0px'),
+                                ('border-color', 'black')]
+                    }, {
+                        'selector': 'thead th:not(:first-child)',
+                        'props': [('text-align', 'center')]  # Center headers except the first
+                    }, {
+                        'selector': 'thead th:last-child',
+                        'props': [('color', 'black')]  # Make last column header black
+                    }, {
+                        'selector': 'td',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'center')]
+                    }, {
+                        'selector': 'th',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'left')]
+                    }]
+                ).set_properties(**{'padding': '2px', 'font-size': '15px'})
+
                 return styled_df
 
             # Main function to process the data
@@ -12847,6 +13060,8 @@ if choose == "Compare Jogadores":
 
 
             # Function to plot the legend using the same colors as the apply_colormap_based_on_value function
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -13171,6 +13386,35 @@ if choose == "Compare Jogadores":
                 # Drop both percentile columns from the final display
                 styled_df = styled_df.hide(axis='columns', subset=['Player 1 Percentiles', 'Player 2 Percentiles'])
 
+                # Apply table styles as in the LAST CODE
+                styled_df = styled_df.set_table_styles(
+                    [{
+                        'selector': 'thead th',
+                        'props': [('font-weight', 'bold'),
+                                ('border-style', 'solid'),
+                                ('border-width', '0px 0px 2px 0px'),
+                                ('border-color', 'black')]
+                    }, {
+                        'selector': 'thead th:not(:first-child)',
+                        'props': [('text-align', 'center')]  # Center headers except the first
+                    }, {
+                        'selector': 'thead th:last-child',
+                        'props': [('color', 'black')]  # Make last column header black
+                    }, {
+                        'selector': 'td',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'center')]
+                    }, {
+                        'selector': 'th',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'left')]
+                    }]
+                ).set_properties(**{'padding': '2px', 'font-size': '15px'})
+
                 return styled_df
 
             # Main function to process the data
@@ -13195,6 +13439,8 @@ if choose == "Compare Jogadores":
 
 
             # Function to plot the legend using the same colors as the apply_colormap_based_on_value function
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -13522,6 +13768,35 @@ if choose == "Compare Jogadores":
                 # Drop both percentile columns from the final display
                 styled_df = styled_df.hide(axis='columns', subset=['Player 1 Percentiles', 'Player 2 Percentiles'])
 
+                # Apply table styles as in the LAST CODE
+                styled_df = styled_df.set_table_styles(
+                    [{
+                        'selector': 'thead th',
+                        'props': [('font-weight', 'bold'),
+                                ('border-style', 'solid'),
+                                ('border-width', '0px 0px 2px 0px'),
+                                ('border-color', 'black')]
+                    }, {
+                        'selector': 'thead th:not(:first-child)',
+                        'props': [('text-align', 'center')]  # Center headers except the first
+                    }, {
+                        'selector': 'thead th:last-child',
+                        'props': [('color', 'black')]  # Make last column header black
+                    }, {
+                        'selector': 'td',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'center')]
+                    }, {
+                        'selector': 'th',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'left')]
+                    }]
+                ).set_properties(**{'padding': '2px', 'font-size': '15px'})
+
                 return styled_df
 
             # Main function to process the data
@@ -13546,6 +13821,8 @@ if choose == "Compare Jogadores":
 
 
             # Function to plot the legend using the same colors as the apply_colormap_based_on_value function
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -13814,6 +14091,35 @@ if choose == "Compare Jogadores":
                 # Drop both percentile columns from the final display
                 styled_df = styled_df.hide(axis='columns', subset=['Player 1 Percentiles', 'Player 2 Percentiles'])
 
+                # Apply table styles as in the LAST CODE
+                styled_df = styled_df.set_table_styles(
+                    [{
+                        'selector': 'thead th',
+                        'props': [('font-weight', 'bold'),
+                                ('border-style', 'solid'),
+                                ('border-width', '0px 0px 2px 0px'),
+                                ('border-color', 'black')]
+                    }, {
+                        'selector': 'thead th:not(:first-child)',
+                        'props': [('text-align', 'center')]  # Center headers except the first
+                    }, {
+                        'selector': 'thead th:last-child',
+                        'props': [('color', 'black')]  # Make last column header black
+                    }, {
+                        'selector': 'td',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'center')]
+                    }, {
+                        'selector': 'th',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'left')]
+                    }]
+                ).set_properties(**{'padding': '2px', 'font-size': '15px'})
+
                 return styled_df
 
             # Main function to process the data
@@ -13838,6 +14144,8 @@ if choose == "Compare Jogadores":
 
 
             # Function to plot the legend using the same colors as the apply_colormap_based_on_value function
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -14163,6 +14471,35 @@ if choose == "Compare Jogadores":
                 # Drop both percentile columns from the final display
                 styled_df = styled_df.hide(axis='columns', subset=['Player 1 Percentiles', 'Player 2 Percentiles'])
 
+                # Apply table styles as in the LAST CODE
+                styled_df = styled_df.set_table_styles(
+                    [{
+                        'selector': 'thead th',
+                        'props': [('font-weight', 'bold'),
+                                ('border-style', 'solid'),
+                                ('border-width', '0px 0px 2px 0px'),
+                                ('border-color', 'black')]
+                    }, {
+                        'selector': 'thead th:not(:first-child)',
+                        'props': [('text-align', 'center')]  # Center headers except the first
+                    }, {
+                        'selector': 'thead th:last-child',
+                        'props': [('color', 'black')]  # Make last column header black
+                    }, {
+                        'selector': 'td',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'center')]
+                    }, {
+                        'selector': 'th',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'left')]
+                    }]
+                ).set_properties(**{'padding': '2px', 'font-size': '15px'})
+
                 return styled_df
 
             # Main function to process the data
@@ -14187,6 +14524,8 @@ if choose == "Compare Jogadores":
 
 
             # Function to plot the legend using the same colors as the apply_colormap_based_on_value function
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -14460,6 +14799,35 @@ if choose == "Compare Jogadores":
                 # Drop both percentile columns from the final display
                 styled_df = styled_df.hide(axis='columns', subset=['Player 1 Percentiles', 'Player 2 Percentiles'])
 
+                # Apply table styles as in the LAST CODE
+                styled_df = styled_df.set_table_styles(
+                    [{
+                        'selector': 'thead th',
+                        'props': [('font-weight', 'bold'),
+                                ('border-style', 'solid'),
+                                ('border-width', '0px 0px 2px 0px'),
+                                ('border-color', 'black')]
+                    }, {
+                        'selector': 'thead th:not(:first-child)',
+                        'props': [('text-align', 'center')]  # Center headers except the first
+                    }, {
+                        'selector': 'thead th:last-child',
+                        'props': [('color', 'black')]  # Make last column header black
+                    }, {
+                        'selector': 'td',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'center')]
+                    }, {
+                        'selector': 'th',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'left')]
+                    }]
+                ).set_properties(**{'padding': '2px', 'font-size': '15px'})
+
                 return styled_df
 
             # Main function to process the data
@@ -14484,6 +14852,8 @@ if choose == "Compare Jogadores":
 
 
             # Function to plot the legend using the same colors as the apply_colormap_based_on_value function
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -14753,6 +15123,35 @@ if choose == "Compare Jogadores":
                 # Drop both percentile columns from the final display
                 styled_df = styled_df.hide(axis='columns', subset=['Player 1 Percentiles', 'Player 2 Percentiles'])
 
+                # Apply table styles as in the LAST CODE
+                styled_df = styled_df.set_table_styles(
+                    [{
+                        'selector': 'thead th',
+                        'props': [('font-weight', 'bold'),
+                                ('border-style', 'solid'),
+                                ('border-width', '0px 0px 2px 0px'),
+                                ('border-color', 'black')]
+                    }, {
+                        'selector': 'thead th:not(:first-child)',
+                        'props': [('text-align', 'center')]  # Center headers except the first
+                    }, {
+                        'selector': 'thead th:last-child',
+                        'props': [('color', 'black')]  # Make last column header black
+                    }, {
+                        'selector': 'td',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'center')]
+                    }, {
+                        'selector': 'th',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'left')]
+                    }]
+                ).set_properties(**{'padding': '2px', 'font-size': '15px'})
+
                 return styled_df
 
             # Main function to process the data
@@ -14777,6 +15176,8 @@ if choose == "Compare Jogadores":
 
 
             # Function to plot the legend using the same colors as the apply_colormap_based_on_value function
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")
@@ -15100,6 +15501,35 @@ if choose == "Compare Jogadores":
                 # Drop both percentile columns from the final display
                 styled_df = styled_df.hide(axis='columns', subset=['Player 1 Percentiles', 'Player 2 Percentiles'])
 
+                # Apply table styles as in the LAST CODE
+                styled_df = styled_df.set_table_styles(
+                    [{
+                        'selector': 'thead th',
+                        'props': [('font-weight', 'bold'),
+                                ('border-style', 'solid'),
+                                ('border-width', '0px 0px 2px 0px'),
+                                ('border-color', 'black')]
+                    }, {
+                        'selector': 'thead th:not(:first-child)',
+                        'props': [('text-align', 'center')]  # Center headers except the first
+                    }, {
+                        'selector': 'thead th:last-child',
+                        'props': [('color', 'black')]  # Make last column header black
+                    }, {
+                        'selector': 'td',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'center')]
+                    }, {
+                        'selector': 'th',
+                        'props': [('border-style', 'solid'),
+                                ('border-width', '0px 0px 1px 0px'),
+                                ('border-color', 'black'),
+                                ('text-align', 'left')]
+                    }]
+                ).set_properties(**{'padding': '2px', 'font-size': '15px'})
+
                 return styled_df
 
             # Main function to process the data
@@ -15124,6 +15554,8 @@ if choose == "Compare Jogadores":
 
 
             # Function to plot the legend using the same colors as the apply_colormap_based_on_value function
+            st.markdown("<br><h5 style='text-align: center;'>Legenda Baseada no Percentil do Jogador na Liga</h5>", unsafe_allow_html=True)
+
             def plot_color_legend():
                 # Custom colors for the categories (using the same logic as in apply_colormap_based_on_value)
                 cmap = plt.get_cmap("Blues")

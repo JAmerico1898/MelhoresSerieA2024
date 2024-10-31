@@ -35,7 +35,7 @@ with st.sidebar:
 if choose == "Melhores do Brasileirão-2024":
     
     #CABEÇALHO DO FORM
-    st.markdown("<h1 style='text-align: center;'>Melhores do Brasileirão até a Rodada 25</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>Melhores do Brasileirão até a Rodada 31</h1>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center;'>app by @JAmerico1898</h6>", unsafe_allow_html=True)
     st.markdown("---")
 
@@ -4271,7 +4271,7 @@ if choose == "Melhores do Brasileirão-2024":
 elif choose == "Ranking de Jogadores":
     
     #CABEÇALHO DO FORM
-    st.markdown("<h1 style='text-align: center;'>Melhores do Brasileirão até a Rodada 25</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>Melhores do Brasileirão até a Rodada 31</h1>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center;'>app by @JAmerico1898</h6>", unsafe_allow_html=True)
     st.markdown("---")
 
@@ -10890,7 +10890,7 @@ elif choose == "Ranking de Jogadores":
 if choose == "Compare Jogadores":
     
     #CABEÇALHO DO FORM
-    st.markdown("<h1 style='text-align: center;'>Melhores do Brasileirão até a Rodada 25</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>Melhores do Brasileirão até a Rodada 31</h1>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center;'>app by @JAmerico1898</h6>", unsafe_allow_html=True)
     st.markdown("---")
 

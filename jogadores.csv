@@ -1,359 +1,445 @@
-Atleta,Equipe,Código_Posição_Wyscout,Liga,Versão_Temporada,Posição,Posição2
-Gustavo Silva,Vitória,10,BRA1,2024,Extremo,Extremo
-Rayan,Vasco da Gama,10,BRA1,2024,Extremo,Extremo
-Kaio Jorge,Cruzeiro,12,BRA1,2024,Atacante,Atacante
-Carlos Miguel,Nottingham Forest,0,BRA1,2024,Goleiro,Goleiro
-Ryan,Corinthians U20,8,BRA1,2024,Segundo Volante,Segundo Volante
-Lucão,Red Bull Bragantino,0,BRA1,2024,Goleiro,Goleiro
-Lucas Freitas,Juventude,4,BRA1,2024,Zagueiro,Zagueiro
-G. Freitas,Atlético GO,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Ademir,Bahia,12,BRA1,2024,Atacante,Atacante
-Pedro Henrique,Atlético GO,4,BRA1,2024,Zagueiro,Zagueiro
-Rezende,Bahia,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-João Pedro,Fenerbahçe,12,BRA1,2024,Atacante,Atacante
-Igor Rabello,Atlético Mineiro,4,BRA1,2024,Zagueiro,Zagueiro
-Zé Hugo,Vitória,10,BRA1,2024,Extremo,Extremo
-J. Hurtado,Red Bull Bragantino,1,BRA1,2024,Lateral Direito,Lateral
-Filipe Machado,Vitória,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Caio Vinícius,Vitória,4,BRA1,2024,Zagueiro,Zagueiro
-Du Queiroz,Grêmio,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Pedro Raul,Corinthians,12,BRA1,2024,Atacante,Atacante
-Matheus Bidu,Corinthians,1,BRA1,2024,Lateral Esquerdo,Lateral
-Marinho,Fortaleza,10,BRA1,2024,Extremo,Extremo
-Eduardo,Botafogo,12,BRA1,2024,Atacante,Atacante
-Lorran,Flamengo,9,BRA1,2024,Meia,Meia
-C. de Pena,Bahia,8,BRA1,2024,Segundo Volante,Segundo Volante
-Zé Welison,Fortaleza,8,BRA1,2024,Segundo Volante,Segundo Volante
-Moisés,Fortaleza,10,BRA1,2024,Extremo,Extremo
-D. Payet,Vasco da Gama,9,BRA1,2024,Meia,Meia
-Thiago Silva,Fluminense,4,BRA1,2024,Zagueiro,Zagueiro
-L. Villalba,Cruzeiro,4,BRA1,2024,Zagueiro,Zagueiro
-L. Alario,Internacional,12,BRA1,2024,Atacante,Atacante
-Gilberto,Juventude,12,BRA1,2024,Atacante,Atacante
-Bento,Al Nassr,0,BRA1,2024,Goleiro,Goleiro
-Alan Patrick,Internacional,12,BRA1,2024,Atacante,Atacante
-L. Di Yorio,Athletico Paranaense,12,BRA1,2024,Atacante,Atacante
-Igor Gomes,Internacional,1,BRA1,2024,Lateral Direito,Lateral
-Matheus Donelli,Corinthians,0,BRA1,2024,Goleiro,Goleiro
-Igor Jesus,Botafogo,12,BRA1,2024,Atacante,Atacante
-Fábio,Grêmio,1,BRA1,2024,Lateral Direito,Lateral
-Matheus Rossetto,Fortaleza,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-M. Araújo,São Paulo,10,BRA1,2024,Extremo,Extremo
-G. Varela,Flamengo,1,BRA1,2024,Lateral Direito,Lateral
-Ewerthon,Juventude,1,BRA1,2024,Lateral Direito,Lateral
-Ó. Romero,Botafogo,10,BRA1,2024,Extremo,Extremo
-Allano,Criciúma,10,BRA1,2024,Extremo,Extremo
-Gabriel Carvalho,Internacional,10,BRA1,2024,Extremo,Extremo
-Mádson,Athletico Paranaense,1,BRA1,2024,Lateral Direito,Lateral
-John Kennedy,Fluminense,12,BRA1,2024,Atacante,Atacante
-Fágner,Corinthians,1,BRA1,2024,Lateral Direito,Lateral
-Pepê,Grêmio,8,BRA1,2024,Segundo Volante,Segundo Volante
-F. Vera,Atlético Mineiro,8,BRA1,2024,Segundo Volante,Segundo Volante
-Matheus Henrique,Cruzeiro,8,BRA1,2024,Segundo Volante,Segundo Volante
-Roni,Atlético GO,1,BRA1,2024,Lateral Direito,Lateral
-Biel,Bahia,10,BRA1,2024,Extremo,Extremo
-M. Zaracho,Atlético Mineiro,8,BRA1,2024,Segundo Volante,Segundo Volante
-R. Cáceres,Vitória,1,BRA1,2024,Lateral Direito,Lateral
-G. de Arrascaeta,Flamengo,9,BRA1,2024,Meia,Meia
-N. Ferraresi,São Paulo,1,BRA1,2024,Lateral Direito,Lateral
-Fabrício,Internacional,0,BRA1,2024,Goleiro,Goleiro
-W. Kannemann,Grêmio,4,BRA1,2024,Zagueiro,Zagueiro
-P. Galdames,Vasco da Gama,8,BRA1,2024,Segundo Volante,Segundo Volante
-Naves,Palmeiras,4,BRA1,2024,Zagueiro,Zagueiro
-Kauã Elias,Fluminense,12,BRA1,2024,Atacante,Atacante
-Gustavo Henrique,Corinthians,4,BRA1,2024,Zagueiro,Zagueiro
-Bruno Tubarão,Atlético GO,1,BRA1,2024,Lateral Direito,Lateral
-Edenílson,Grêmio,12,BRA1,2024,Atacante,Atacante
-Wanderson,Internacional,10,BRA1,2024,Extremo,Extremo
-Lázaro,Palmeiras,10,BRA1,2024,Extremo,Extremo
-Railan,Cuiabá,1,BRA1,2024,Lateral Direito,Lateral
-Vanderlan,Palmeiras,1,BRA1,2024,Lateral Esquerdo,Lateral
-Marçal,Botafogo,1,BRA1,2024,Lateral Esquerdo,Lateral
-Éder,Criciúma,12,BRA1,2024,Atacante,Atacante
-Neris,Vitória,4,BRA1,2024,Zagueiro,Zagueiro
-Igor Gomes,Internacional,8,BRA1,2024,Segundo Volante,Segundo Volante
-G. Mastriani,Athletico Paranaense,12,BRA1,2024,Atacante,Atacante
-N. de la Cruz,Flamengo,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Rodrigo Sam,Juventude,4,BRA1,2024,Zagueiro,Zagueiro
-Walisson Maia,Criciúma,4,BRA1,2024,Zagueiro,Zagueiro
-Marcelo,Fluminense,1,BRA1,2024,Lateral Esquerdo,Lateral
-Wellington Rato,São Paulo,10,BRA1,2024,Extremo,Extremo
-Gustavinho,Red Bull Bragantino,8,BRA1,2024,Segundo Volante,Segundo Volante
-Alexsander,Fluminense,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Marcelinho,Juventude,10,BRA1,2024,Extremo,Extremo
-Rodrigo Nestor,São Paulo,10,BRA1,2024,Extremo,Extremo
-A. Bernabéi,Internacional,1,BRA1,2024,Lateral Esquerdo,Lateral
-D. Bobadilla,São Paulo,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Zé Rafael,Palmeiras,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Kaiki,Cruzeiro,1,BRA1,2024,Lateral Esquerdo,Lateral
-Keno,Fluminense,10,BRA1,2024,Extremo,Extremo
-Cadu,Atlético Mineiro,12,BRA1,2024,Atacante,Atacante
-Gabriel,Athletico Paranaense,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-C. Pavón,Grêmio,10,BRA1,2024,Extremo,Extremo
-Y. Soteldo,Grêmio,11,BRA1,2024,Extremo,Extremo
-João Victor,Vasco da Gama,4,BRA1,2024,Zagueiro,Zagueiro
-Vitor Reis,Palmeiras U20,4,BRA1,2024,Zagueiro,Zagueiro
-M. Ponte,Botafogo,1,BRA1,2024,Lateral Direito,Lateral
-André Ramalho,Corinthians,4,BRA1,2024,Zagueiro,Zagueiro
-Ronald,Criciúma,8,BRA1,2024,Segundo Volante,Segundo Volante
-Nikão,Athletico Paranaense,10,BRA1,2024,Extremo,Extremo
-R. Ríos,Palmeiras,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Ferreira,São Paulo,10,BRA1,2024,Extremo,Extremo
-Marquinhos Gabriel,Criciúma,10,BRA1,2024,Extremo,Extremo
-Maurício,Palmeiras,9,BRA1,2024,Meia,Meia
-Luiz Felipe,Atlético GO,4,BRA1,2024,Zagueiro,Zagueiro
-F. Bustos,River Plate,1,BRA1,2024,Lateral Direito,Lateral
-André Silva,São Paulo,12,BRA1,2024,Atacante,Atacante
-A. Canobbio,Athletico Paranaense,10,BRA1,2024,Extremo,Extremo
-Bruno Alves,Cuiabá,4,BRA1,2024,Zagueiro,Zagueiro
-Gabriel Inocêncio,Juventude,1,BRA1,2024,Lateral Direito,Lateral
-Gabriel Veron,Cruzeiro,11,BRA1,2024,Extremo,Extremo
-Lincoln,Red Bull Bragantino,9,BRA1,2024,Meia,Meia
-Mayke,Palmeiras,1,BRA1,2024,Lateral Direito,Lateral
-W. Ángel,Criciúma,4,BRA1,2024,Zagueiro,Zagueiro
-Derik Lacerda,Cuiabá,10,BRA1,2024,Extremo,Extremo
-Jean Carlos,Juventude,9,BRA1,2024,Meia,Meia
-Matheus Mendes,Atlético Mineiro,0,BRA1,2024,Goleiro,Goleiro
-Diego Costa,Krasnodar,4,BRA1,2024,Zagueiro,Zagueiro
-Jandrei,São Paulo,0,BRA1,2024,Goleiro,Goleiro
-R. Borré,Internacional,12,BRA1,2024,Atacante,Atacante
-Antônio Carlos,Fluminense,4,BRA1,2024,Zagueiro,Zagueiro
-Gilberto,Juventude,1,BRA1,2024,Lateral Direito,Lateral
-Janderson,Atlético GO,12,BRA1,2024,Atacante,Atacante
-Gabriel Menino,Palmeiras,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Bruno Gomes,Internacional,1,BRA1,2024,Lateral Direito,Lateral
-Pablo,Athletico Paranaense,12,BRA1,2024,Atacante,Atacante
-Tobias Figueiredo,Criciúma,4,BRA1,2024,Zagueiro,Zagueiro
-Vitinho,Cruzeiro,10,BRA1,2024,Extremo,Extremo
-Hugo Souza,Corinthians,0,BRA1,2024,Goleiro,Goleiro
-E. Pulgar,Flamengo,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-T. Borbas,Red Bull Bragantino,12,BRA1,2024,Atacante,Atacante
-T. Cuello,Athletico Paranaense,10,BRA1,2024,Extremo,Extremo
-Matheusinho,Criciúma,10,BRA1,2024,Extremo,Extremo
-J. Sforza,Vasco da Gama,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Renê,Internacional,1,BRA1,2024,Lateral Esquerdo,Lateral
-Raul,Red Bull Bragantino,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Jadsom Silva,Red Bull Bragantino,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-B. Kuščević,Fortaleza,4,BRA1,2024,Zagueiro,Zagueiro
-Max,Cuiabá,9,BRA1,2024,Meia,Meia
-Fernando,Athletico Paranaense,4,BRA1,2024,Zagueiro,Zagueiro
-Lima,Fluminense,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Higor Meritão,Criciúma,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Ramiro,Cruzeiro,8,BRA1,2024,Segundo Volante,Segundo Volante
-Robert Renan,Al Shabab,4,BRA1,2024,Zagueiro,Zagueiro
-Bruno Pacheco,Fortaleza,1,BRA1,2024,Lateral Esquerdo,Lateral
-Tiquinho Soares,Botafogo,12,BRA1,2024,Atacante,Atacante
-Eduardo Santos,Red Bull Bragantino,4,BRA1,2024,Zagueiro,Zagueiro
-Gustavo Martins,Grêmio,4,BRA1,2024,Zagueiro,Zagueiro
-Eduardo Sasha,Red Bull Bragantino,12,BRA1,2024,Atacante,Atacante
-Eric Ramires,Red Bull Bragantino,8,BRA1,2024,Segundo Volante,Segundo Volante
-Douglas Mendes,Red Bull Bragantino,4,BRA1,2024,Zagueiro,Zagueiro
-Rômulo,Atlético Mineiro,8,BRA1,2024,Segundo Volante,Segundo Volante
-Osvaldo,Vitória,10,BRA1,2024,Extremo,Extremo
-Léo Naldi,Vitória,8,BRA1,2024,Segundo Volante,Segundo Volante
-Fernando Sobral,Cuiabá,8,BRA1,2024,Segundo Volante,Segundo Volante
-Breno Bidon,Corinthians U20,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-M. Gamarra,Athletico Paranaense,4,BRA1,2024,Zagueiro,Zagueiro
-L. Godoy,Athletico Paranaense,1,BRA1,2024,Lateral Direito,Lateral
-Renato Kayzer,Fortaleza,12,BRA1,2024,Atacante,Atacante
-Diogo Barbosa,Fluminense,1,BRA1,2024,Lateral Esquerdo,Lateral
-Á. Barreal,Cruzeiro,8,BRA1,2024,Segundo Volante,Segundo Volante
-Clayson,Cuiabá,10,BRA1,2024,Extremo,Extremo
-B. Zapelli,Athletico Paranaense,9,BRA1,2024,Meia,Meia
-Danilo Barbosa,Botafogo,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-André,Fluminense,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Jonathan Cafú,Cuiabá,10,BRA1,2024,Extremo,Extremo
-Á. Romero,Corinthians,12,BRA1,2024,Atacante,Atacante
-Léo Ortiz,Flamengo,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Helinho,Red Bull Bragantino,10,BRA1,2024,Extremo,Extremo
-E. Rodríguez,Atlético GO,12,BRA1,2024,Atacante,Atacante
-G. Cano,Fluminense,12,BRA1,2024,Atacante,Atacante
-T. Cardona,Fortaleza,4,BRA1,2024,Zagueiro,Zagueiro
-Thiago Santos,Fluminense,4,BRA1,2024,Zagueiro,Zagueiro
-Nenê,Juventude,9,BRA1,2024,Meia,Meia
-G. Mercado,Internacional,4,BRA1,2024,Zagueiro,Zagueiro
-Hugo Moura,Vasco da Gama,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Fellipe Mateus,Criciúma,9,BRA1,2024,Meia,Meia
-Allan,Flamengo,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Guilherme Arana,Atlético Mineiro,1,BRA1,2024,Lateral Esquerdo,Lateral
-M. Trauco,Criciúma,1,BRA1,2024,Lateral Esquerdo,Lateral
-Nathan Mendes,Red Bull Bragantino,1,BRA1,2024,Lateral Direito,Lateral
-Pedro Henrique,Atlético GO,4,BRA1,2024,Zagueiro,Zagueiro
-Alix Vinicius,Atlético GO,4,BRA1,2024,Zagueiro,Zagueiro
-A. Barboza,Botafogo,4,BRA1,2024,Zagueiro,Zagueiro
-Marquinhos,Fluminense,10,BRA1,2024,Extremo,Extremo
-Pedro Augusto,Fortaleza,8,BRA1,2024,Segundo Volante,Segundo Volante
-Igor Coronado,Corinthians,9,BRA1,2024,Meia,Meia
-Hulk,Atlético Mineiro,12,BRA1,2024,Atacante,Atacante
-Christian,Athletico Paranaense,9,BRA1,2024,Meia,Meia
-Lucas Kal,Al Riyadh,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Juninho Capixaba,Red Bull Bragantino,1,BRA1,2024,Lateral Esquerdo,Lateral
-Arthur Caíke,Criciúma,12,BRA1,2024,Atacante,Atacante
-Bruno Henrique,Flamengo,10,BRA1,2024,Extremo,Extremo
-Cássio,Cruzeiro,0,BRA1,2024,Goleiro,Goleiro
-S. Rochet,Internacional,0,BRA1,2024,Goleiro,Goleiro
-A. Franco,Atlético Mineiro,8,BRA1,2024,Segundo Volante,Segundo Volante
-Rodrigo Ely,Grêmio,4,BRA1,2024,Zagueiro,Zagueiro
-J. Savarino,Botafogo,10,BRA1,2024,Extremo,Extremo
-Éverson,Atlético Mineiro,0,BRA1,2024,Goleiro,Goleiro
-Vitão,Internacional,4,BRA1,2024,Zagueiro,Zagueiro
-S. Arias,Bahia,1,BRA1,2024,Lateral Direito,Lateral
-Luan Silva,Vitória,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Julimar,Athletico Paranaense,10,BRA1,2024,Extremo,Extremo
-Lucas Sasha,Fortaleza,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-A. Cruz,Atlético GO,11,BRA1,2024,Extremo,Extremo
-Adson,Vasco da Gama,10,BRA1,2024,Extremo,Extremo
-Léo Linck,Athletico Paranaense,0,BRA1,2024,Goleiro,Goleiro
-David Luiz,Flamengo,4,BRA1,2024,Zagueiro,Zagueiro
-Thiago Maia,Internacional,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Gustavo Nunes,Grêmio,10,BRA1,2024,Extremo,Extremo
-D. Suárez,Botafogo,1,BRA1,2024,Lateral Direito,Lateral
-Arthur Gomes,Dinamo Moskva,11,BRA1,2024,Extremo,Extremo
-Otávio,Atlético Mineiro,8,BRA1,2024,Segundo Volante,Segundo Volante
-M. Villasanti,Grêmio,8,BRA1,2024,Segundo Volante,Segundo Volante
-J. Arias,Fluminense,10,BRA1,2024,Extremo,Extremo
-F. Cristaldo,Grêmio,12,BRA1,2024,Atacante,Atacante
-J. López,Palmeiras,12,BRA1,2024,Atacante,Atacante
-Estevão,Palmeiras U20,10,BRA1,2024,Extremo,Extremo
-Bruno Fuchs,Atlético Mineiro,4,BRA1,2024,Zagueiro,Zagueiro
-Reinaldo,Grêmio,1,BRA1,2024,Lateral Esquerdo,Lateral
-Lucas Moura,São Paulo,10,BRA1,2024,Extremo,Extremo
-Gregore,Botafogo,8,BRA1,2024,Segundo Volante,Segundo Volante
-Júnior Santos,Botafogo,12,BRA1,2024,Atacante,Atacante
-Thiago Heleno,Athletico Paranaense,4,BRA1,2024,Zagueiro,Zagueiro
-Titi,Fortaleza,4,BRA1,2024,Zagueiro,Zagueiro
-Bruno Henrique,Flamengo,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Marcos Rocha,Palmeiras,1,BRA1,2024,Lateral Direito,Lateral
-Luiz Gustavo,São Paulo,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Newton,Criciúma,8,BRA1,2024,Segundo Volante,Segundo Volante
-T. Pochettino,Fortaleza,9,BRA1,2024,Meia,Meia
-Lucas Silva,Cruzeiro,8,BRA1,2024,Segundo Volante,Segundo Volante
-Dodi,Grêmio,8,BRA1,2024,Segundo Volante,Segundo Volante
-Mateus Carvalho,Vasco da Gama,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Tchê Tchê,Botafogo,10,BRA1,2024,Extremo,Extremo
-Yago Pikachu,Fortaleza,10,BRA1,2024,Extremo,Extremo
-Alisson,Atlético Mineiro,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Lucas Evangelista,Red Bull Bragantino,8,BRA1,2024,Segundo Volante,Segundo Volante
-Lucas Halter,Botafogo,4,BRA1,2024,Zagueiro,Zagueiro
-J. Lucero,Fortaleza,12,BRA1,2024,Atacante,Atacante
-Marlon,Cruzeiro,1,BRA1,2024,Lateral Esquerdo,Lateral
-Maguinho,Atlético GO,1,BRA1,2024,Lateral Direito,Lateral
-Anderson,Cruzeiro,0,BRA1,2024,Goleiro,Goleiro
-Luciano,São Paulo,9,BRA1,2024,Meia,Meia
-Cuiabano,Botafogo,1,BRA1,2024,Lateral Esquerdo,Lateral
-Fernandinho,Athletico Paranaense,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-A. Marchesín,Grêmio,0,BRA1,2024,Goleiro,Goleiro
-Rony,Palmeiras,12,BRA1,2024,Atacante,Atacante
-G. Gómez,Palmeiras,4,BRA1,2024,Zagueiro,Zagueiro
-Rafael,São Paulo,0,BRA1,2024,Goleiro,Goleiro
-Léo Pereira,Flamengo,4,BRA1,2024,Zagueiro,Zagueiro
-Hércules,Fortaleza,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Zé Marcos,Juventude,4,BRA1,2024,Zagueiro,Zagueiro
-J. Piquerez,Palmeiras,1,BRA1,2024,Lateral Esquerdo,Lateral
-Caíque,Juventude,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-R. Saravia,Atlético Mineiro,4,BRA1,2024,Zagueiro,Zagueiro
-A. Franco,Atlético Mineiro,4,BRA1,2024,Zagueiro,Zagueiro
-Felipe Jonatan,Fortaleza,1,BRA1,2024,Lateral Esquerdo,Lateral
-David,Vasco da Gama,10,BRA1,2024,Extremo,Extremo
-Barreto,Criciúma,8,BRA1,2024,Segundo Volante,Segundo Volante
-F. Torres,Corinthians,4,BRA1,2024,Zagueiro,Zagueiro
-Rhaldney,Atlético GO,8,BRA1,2024,Segundo Volante,Segundo Volante
-Wesley,Flamengo,1,BRA1,2024,Lateral Direito,Lateral
-H. Mosquera,Red Bull Bragantino,10,BRA1,2024,Extremo,Extremo
-Yuri Alberto,Corinthians,12,BRA1,2024,Atacante,Atacante
-Claudinho,Criciúma,1,BRA1,2024,Lateral Direito,Lateral
-Denilson,Cuiabá,8,BRA1,2024,Segundo Volante,Segundo Volante
-Matheus Alexandre,Cuiabá,1,BRA1,2024,Lateral Direito,Lateral
-Everaldo,Bahia,12,BRA1,2024,Atacante,Atacante
-Breno Lopes,Fortaleza,10,BRA1,2024,Extremo,Extremo
-Wesley,Flamengo,10,BRA1,2024,Extremo,Extremo
-Wesley,Flamengo,10,BRA1,2024,Extremo,Extremo
-M. França Silva,Corinthians,1,BRA1,2024,Lateral Direito,Lateral
-Murilo,Palmeiras,4,BRA1,2024,Zagueiro,Zagueiro
-Y. Bolasie,Criciúma,12,BRA1,2024,Atacante,Atacante
-Igor Vinícius,São Paulo,1,BRA1,2024,Lateral Direito,Lateral
-Baralhas,Atlético GO,8,BRA1,2024,Segundo Volante,Segundo Volante
-Alerrandro,Vitória,12,BRA1,2024,Atacante,Atacante
-Raphael Veiga,Palmeiras,9,BRA1,2024,Meia,Meia
-Ramon,Cuiabá,1,BRA1,2024,Lateral Esquerdo,Lateral
-Luiz Araújo,Flamengo,10,BRA1,2024,Extremo,Extremo
-Samuel Xavier,Fluminense,1,BRA1,2024,Lateral Direito,Lateral
-Ganso,Fluminense,9,BRA1,2024,Meia,Meia
-João Lucas,Juventude,1,BRA1,2024,Lateral Direito,Lateral
-Ayrton Lucas,Flamengo,1,BRA1,2024,Lateral Esquerdo,Lateral
-João Pedro,Fenerbahçe,1,BRA1,2024,Lateral Direito,Lateral
-Welington,São Paulo,1,BRA1,2024,Lateral Esquerdo,Lateral
-Cleiton,Red Bull Bragantino,0,BRA1,2024,Goleiro,Goleiro
-A. Moreno,Palmeiras,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Alan Ruschel,Juventude,1,BRA1,2024,Lateral Esquerdo,Lateral
-Martinelli,Fluminense,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-R. Battaglia,Atlético Mineiro,4,BRA1,2024,Zagueiro,Zagueiro
-J. Calleri,São Paulo,12,BRA1,2024,Atacante,Atacante
-L. Esquivel,Athletico Paranaense,1,BRA1,2024,Lateral Esquerdo,Lateral
-Lucas Barbosa,Juventude,10,BRA1,2024,Extremo,Extremo
-Thaciano,Bahia,12,BRA1,2024,Atacante,Atacante
-Luiz Henrique,Botafogo,10,BRA1,2024,Extremo,Extremo
-Gustavo Scarpa,Atlético Mineiro,10,BRA1,2024,Extremo,Extremo
-Marlon Freitas,Botafogo,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Erick Farias,Juventude,10,BRA1,2024,Extremo,Extremo
-Willean Lepo,Vitória,1,BRA1,2024,Lateral Direito,Lateral
-Lucas Piton,Vasco da Gama,1,BRA1,2024,Lateral Esquerdo,Lateral
-L. Romero,Cruzeiro,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Pedro,Flamengo,12,BRA1,2024,Atacante,Atacante
-Matheuzinho,Vitória,10,BRA1,2024,Extremo,Extremo
-Paulinho,Atlético Mineiro,12,BRA1,2024,Atacante,Atacante
-Éverton Ribeiro,Bahia,8,BRA1,2024,Segundo Volante,Segundo Volante
-Erick,Athletico Paranaense,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Fabricio Bruno,Flamengo,4,BRA1,2024,Zagueiro,Zagueiro
-Lucas Mineiro,Cuiabá,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Kanu,Bahia,4,BRA1,2024,Zagueiro,Zagueiro
-Maicon,Vasco da Gama,4,BRA1,2024,Zagueiro,Zagueiro
-E. Brítez,Fortaleza,4,BRA1,2024,Zagueiro,Zagueiro
-Luan Cândido,Red Bull Bragantino,4,BRA1,2024,Zagueiro,Zagueiro
-Léo,Vasco da Gama,4,BRA1,2024,Zagueiro,Zagueiro
-Shaylon,Atlético GO,11,BRA1,2024,Extremo,Extremo
-Hugo,Botafogo,1,BRA1,2024,Lateral Esquerdo,Lateral
-Gerson,Flamengo,10,BRA1,2024,Extremo,Extremo
-Raniele,Corinthians,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Jádson,Juventude,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-Paulo Henrique,Vasco da Gama,1,BRA1,2024,Lateral Direito,Lateral
-Cauly,Bahia,12,BRA1,2024,Atacante,Atacante
-Alan Empereur,Cuiabá,4,BRA1,2024,Zagueiro,Zagueiro
-Danilo Boza,Juventude,4,BRA1,2024,Zagueiro,Zagueiro
-Tinga,Fortaleza,1,BRA1,2024,Lateral Direito,Lateral
-Cacá,Corinthians,4,BRA1,2024,Zagueiro,Zagueiro
-Rodrigo,Criciúma,4,BRA1,2024,Zagueiro,Zagueiro
-I. Pitta,Cuiabá,12,BRA1,2024,Atacante,Atacante
-Zé Ivaldo,Cruzeiro,4,BRA1,2024,Zagueiro,Zagueiro
-Gustavo,Criciúma,0,BRA1,2024,Goleiro,Goleiro
-Willian Oliveira,Vitória,8,BRA1,2024,Segundo Volante,Segundo Volante
-Caio Alexandre,Bahia,7,BRA1,2024,Primeiro Volante,Primeiro Volante
-R. Arboleda,São Paulo,4,BRA1,2024,Zagueiro,Zagueiro
-João Marcelo,Cruzeiro,4,BRA1,2024,Zagueiro,Zagueiro
-P. Vegetti,Vasco da Gama,12,BRA1,2024,Atacante,Atacante
-William,Cruzeiro,1,BRA1,2024,Lateral Direito,Lateral
-Marcelo Hermes,Criciúma,1,BRA1,2024,Lateral Esquerdo,Lateral
-Lucas Esteves,Vitória,1,BRA1,2024,Lateral Esquerdo,Lateral
-Gabriel,Athletico Paranaense,0,BRA1,2024,Goleiro,Goleiro
-Kaique Rocha,Athletico Paranaense,4,BRA1,2024,Zagueiro,Zagueiro
-Luiz Fernando,Atlético GO,11,BRA1,2024,Extremo,Extremo
-Luciano Juba,Bahia,1,BRA1,2024,Lateral Esquerdo,Lateral
-Matheus Pereira,Cruzeiro,12,BRA1,2024,Atacante,Atacante
-Jean Lucas,Bahia,8,BRA1,2024,Segundo Volante,Segundo Volante
-Ronaldo,Atlético GO,0,BRA1,2024,Goleiro,Goleiro
-Adriano Martins,Atlético GO,4,BRA1,2024,Zagueiro,Zagueiro
-Guilherme Romão,Atlético GO,1,BRA1,2024,Lateral Esquerdo,Lateral
-Bastos,Botafogo,4,BRA1,2024,Zagueiro,Zagueiro
-Gabriel Xavier,Bahia,4,BRA1,2024,Zagueiro,Zagueiro
-R. Garro,Corinthians,9,BRA1,2024,Meia,Meia
-John Victor,Botafogo,0,BRA1,2024,Goleiro,Goleiro
-Walter,Cuiabá,0,BRA1,2024,Goleiro,Goleiro
-A. Rossi,Flamengo,0,BRA1,2024,Goleiro,Goleiro
-Marllon,Cuiabá,4,BRA1,2024,Zagueiro,Zagueiro
-Weverton,Palmeiras,0,BRA1,2024,Goleiro,Goleiro
-Léo Jardim,Vasco da Gama,0,BRA1,2024,Goleiro,Goleiro
-Fábio,Grêmio,0,BRA1,2024,Goleiro,Goleiro
-Wagner Leonardo,Vitória,4,BRA1,2024,Zagueiro,Zagueiro
-Marcos Felipe,Bahia,0,BRA1,2024,Goleiro,Goleiro
-João Ricardo,Fortaleza,0,BRA1,2024,Goleiro,Goleiro
-Lucas Arcanjo,Vitória,0,BRA1,2024,Goleiro,Goleiro
+Atleta,Equipe,Código_Posição_Wyscout,Pé,Liga,Versão_Temporada,Posição,Posição2
+Fábio,Fluminense,0,right,BRA1,2024,Goleiro,Goleiro
+Nenê,Juventude,9,left,BRA1,2024,Meia,Meia
+Thiago Silva,Fluminense,4,right,BRA1,2024,Zagueiro,Zagueiro
+Fernandinho,Athletico Paranaense,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Pedro Geromel,Grêmio,4,right,BRA1,2024,Zagueiro,Zagueiro
+Fabrício,Internacional,0,right,BRA1,2024,Goleiro,Goleiro
+Mariano,Atlético Mineiro,4,right,BRA1,2024,Zagueiro,Zagueiro
+Hulk,Atlético Mineiro,12,left,BRA1,2024,Atacante,Atacante
+Éder,Criciúma,12,right,BRA1,2024,Atacante,Atacante
+Rodrigo,Criciúma,4,right,BRA1,2024,Zagueiro,Zagueiro
+G. Mercado,Internacional,4,right,BRA1,2024,Zagueiro,Zagueiro
+D. Payet,Vasco da Gama,9,right,BRA1,2024,Meia,Meia
+Osvaldo,Vitória,10,right,BRA1,2024,Extremo,Extremo
+David Luiz,Flamengo,4,right,BRA1,2024,Zagueiro,Zagueiro
+Cássio,Cruzeiro,0,right,BRA1,2024,Goleiro,Goleiro
+Luiz Gustavo,São Paulo,7,left,BRA1,2024,Primeiro Volante,Primeiro Volante
+Fernando,Internacional,4,right,BRA1,2024,Zagueiro,Zagueiro
+Walter,Cuiabá,0,right,BRA1,2024,Goleiro,Goleiro
+Weverton,Palmeiras,0,right,BRA1,2024,Goleiro,Goleiro
+G. Cano,Fluminense,12,right,BRA1,2024,Atacante,Atacante
+Titi,Fortaleza,4,left,BRA1,2024,Zagueiro,Zagueiro
+A. Marchesín,Grêmio,0,right,BRA1,2024,Goleiro,Goleiro
+D. Suárez,Botafogo,1,right,BRA1,2024,Lateral Direito,Lateral
+Marcelo,Fluminense,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+João Ricardo,Fortaleza,0,right,BRA1,2024,Goleiro,Goleiro
+Maicon,Vasco da Gama,4,right,BRA1,2024,Zagueiro,Zagueiro
+Thiago Heleno,Athletico Paranaense,4,right,BRA1,2024,Zagueiro,Zagueiro
+P. Vegetti,Vasco da Gama,12,right,BRA1,2024,Atacante,Atacante
+V. Cuesta,Bahia,4,left,BRA1,2024,Zagueiro,Zagueiro
+Marcos Rocha,Palmeiras,1,right,BRA1,2024,Lateral Direito,Lateral
+Marçal,Botafogo,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Éverton Ribeiro,Bahia,8,left,BRA1,2024,Segundo Volante,Segundo Volante
+Y. Bolasie,Criciúma,12,right,BRA1,2024,Atacante,Atacante
+Gilberto,Juventude,12,right,BRA1,2024,Atacante,Atacante
+Fágner,Corinthians,1,right,BRA1,2024,Lateral Direito,Lateral
+Rafael,São Paulo,0,left,BRA1,2024,Goleiro,Goleiro
+Alan Ruschel,Juventude,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Thiago Santos,Fluminense,4,right,BRA1,2024,Zagueiro,Zagueiro
+Keno,Fluminense,10,right,BRA1,2024,Extremo,Extremo
+Reinaldo,Grêmio,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Ganso,Fluminense,9,left,BRA1,2024,Meia,Meia
+Eduardo,Botafogo,12,right,BRA1,2024,Atacante,Atacante
+Bruno Henrique,Internacional,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+E. Valencia,Internacional,12,right,BRA1,2024,Atacante,Atacante
+E. Vargas,Atlético Mineiro,12,right,BRA1,2024,Atacante,Atacante
+Edenílson,Grêmio,10,right,BRA1,2024,Extremo,Extremo
+Manoel,Fluminense,4,right,BRA1,2024,Zagueiro,Zagueiro
+Lucas Sasha,Fortaleza,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Rafael Cabral,Grêmio,0,right,BRA1,2024,Goleiro,Goleiro
+Marinho,Fortaleza,10,left,BRA1,2024,Extremo,Extremo
+Samuel Xavier,Fluminense,1,right,BRA1,2024,Lateral Direito,Lateral
+Fábio,Grêmio,1,right,BRA1,2024,Lateral Direito,Lateral
+Marquinhos Gabriel,Criciúma,10,left,BRA1,2024,Extremo,Extremo
+Éverson,Atlético Mineiro,0,right,BRA1,2024,Goleiro,Goleiro
+Bruno Henrique,Flamengo,10,right,BRA1,2024,Extremo,Extremo
+Tiquinho Soares,Botafogo,12,right,BRA1,2024,Atacante,Atacante
+Fellipe Mateus,Criciúma,10,left,BRA1,2024,Extremo,Extremo
+W. Kannemann,Grêmio,4,left,BRA1,2024,Zagueiro,Zagueiro
+Bastos,Botafogo,4,right,BRA1,2024,Zagueiro,Zagueiro
+Bruno Alves,Cuiabá,4,right,BRA1,2024,Zagueiro,Zagueiro
+Deyverson,Atlético Mineiro,12,left,BRA1,2024,Atacante,Atacante
+Alan Patrick,Internacional,9,right,BRA1,2024,Meia,Meia
+M. Braithwaite,Grêmio,12,right,BRA1,2024,Atacante,Atacante
+Everaldo,Bahia,12,right,BRA1,2024,Atacante,Atacante
+Jonathan Cafú,Cuiabá,10,right,BRA1,2024,Extremo,Extremo
+R. Battaglia,Atlético Mineiro,4,right,BRA1,2024,Zagueiro,Zagueiro
+Walisson Maia,Criciúma,4,right,BRA1,2024,Zagueiro,Zagueiro
+R. Cáceres,Vitória,1,right,BRA1,2024,Lateral Direito,Lateral
+G. Freitas,Atlético GO,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+R. Arboleda,São Paulo,4,right,BRA1,2024,Zagueiro,Zagueiro
+J. Lucero,Fortaleza,12,right,BRA1,2024,Atacante,Atacante
+Bruno Pacheco,Fortaleza,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Maguinho,Atlético GO,1,right,BRA1,2024,Lateral Direito,Lateral
+Mádson,Athletico Paranaense,1,right,BRA1,2024,Lateral Direito,Lateral
+S. Arias,Bahia,1,right,BRA1,2024,Lateral Direito,Lateral
+Jean Carlos,Juventude,9,left,BRA1,2024,Meia,Meia
+André Ramalho,Corinthians,4,right,BRA1,2024,Zagueiro,Zagueiro
+Eduardo Sasha,Red Bull Bragantino,12,right,BRA1,2024,Atacante,Atacante
+João Pedro,Grêmio,12,right,BRA1,2024,Atacante,Atacante
+C. de Pena,Bahia,8,left,BRA1,2024,Segundo Volante,Segundo Volante
+E. Brítez,Fortaleza,4,right,BRA1,2024,Zagueiro,Zagueiro
+Rafa Silva,Cruzeiro,11,right,BRA1,2024,Extremo,Extremo
+Marllon,Cuiabá,4,right,BRA1,2024,Zagueiro,Zagueiro
+Yago Pikachu,Fortaleza,10,right,BRA1,2024,Extremo,Extremo
+Philippe Coutinho,Vasco da Gama,9,right,BRA1,2024,Meia,Meia
+Arthur Caíke,Criciúma,12,right,BRA1,2024,Atacante,Atacante
+Neris,Vitória,4,right,BRA1,2024,Zagueiro,Zagueiro
+Pablo,Athletico Paranaense,12,right,BRA1,2024,Atacante,Atacante
+J. Campbell,Atlético GO,9,left,BRA1,2024,Meia,Meia
+Wellington Rato,São Paulo,10,left,BRA1,2024,Extremo,Extremo
+Ó. Romero,Botafogo,10,left,BRA1,2024,Extremo,Extremo
+Á. Romero,Corinthians,12,right,BRA1,2024,Atacante,Atacante
+Gabriel,Athletico Paranaense,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Nikão,Athletico Paranaense,10,left,BRA1,2024,Extremo,Extremo
+Lucas Moura,São Paulo,10,right,BRA1,2024,Extremo,Extremo
+Diogo Barbosa,Fluminense,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Igor Coronado,Corinthians,9,right,BRA1,2024,Meia,Meia
+Jemerson,Grêmio,4,right,BRA1,2024,Zagueiro,Zagueiro
+Jonathan,Criciúma,1,right,BRA1,2024,Lateral Direito,Lateral
+M. Trauco,Criciúma,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Tchê Tchê,Botafogo,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Bernard,Atlético Mineiro,9,right,BRA1,2024,Meia,Meia
+Renê,Internacional,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Gabriel,Juventude,0,right,BRA1,2024,Goleiro,Goleiro
+L. Alario,Internacional,12,right,BRA1,2024,Atacante,Atacante
+Mayke,Palmeiras,1,right,BRA1,2024,Lateral Direito,Lateral
+Pedro Henrique,Atlético GO,4,left,BRA1,2024,Zagueiro,Zagueiro
+J. Alonso,Atlético Mineiro,4,left,BRA1,2024,Zagueiro,Zagueiro
+Lucas Silva,Cruzeiro,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Jandrei,São Paulo,0,right,BRA1,2024,Goleiro,Goleiro
+Gilberto,Bahia,1,right,BRA1,2024,Lateral Direito,Lateral
+Antônio Carlos,Fluminense,4,right,BRA1,2024,Zagueiro,Zagueiro
+Gustavo,Criciúma,0,right,BRA1,2024,Goleiro,Goleiro
+W. Ángel,Criciúma,4,right,BRA1,2024,Zagueiro,Zagueiro
+S. Rochet,Internacional,0,right,BRA1,2024,Goleiro,Goleiro
+G. Varela,Flamengo,1,right,BRA1,2024,Lateral Direito,Lateral
+Gustavo Henrique,Corinthians,4,right,BRA1,2024,Zagueiro,Zagueiro
+Felipe Anderson,Palmeiras,10,right,BRA1,2024,Extremo,Extremo
+Rossi,Vasco da Gama,11,right,BRA1,2024,Extremo,Extremo
+G. Mastriani,Athletico Paranaense,12,left,BRA1,2024,Atacante,Atacante
+G. Gómez,Palmeiras,4,right,BRA1,2024,Zagueiro,Zagueiro
+Willian Oliveira,Vitória,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Luciano,São Paulo,9,left,BRA1,2024,Meia,Meia
+Ramiro,Cruzeiro,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+R. Saravia,Atlético Mineiro,4,right,BRA1,2024,Zagueiro,Zagueiro
+Zé Rafael,Palmeiras,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Alisson,São Paulo,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Filipe Augusto,Cuiabá,7,left,BRA1,2024,Primeiro Volante,Primeiro Volante
+Jádson,Juventude,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Tinga,Fortaleza,1,right,BRA1,2024,Lateral Direito,Lateral
+Luiz Felipe,Atlético GO,4,right,BRA1,2024,Zagueiro,Zagueiro
+J. Calleri,São Paulo,12,right,BRA1,2024,Atacante,Atacante
+Camutanga,Vitória,4,right,BRA1,2024,Zagueiro,Zagueiro
+Jean Mota,Vitória,8,left,BRA1,2024,Segundo Volante,Segundo Volante
+Rodrigo Ely,Grêmio,4,right,BRA1,2024,Zagueiro,Zagueiro
+Gustavo Scarpa,Atlético Mineiro,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+E. Pulgar,Flamengo,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Tobias Figueiredo,Criciúma,4,right,BRA1,2024,Zagueiro,Zagueiro
+Ricardo Ryller,Vitória,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Gregore,Botafogo,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Alan Empereur,Cuiabá,4,left,BRA1,2024,Zagueiro,Zagueiro
+L. Romero,Cruzeiro,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Otávio,Atlético Mineiro,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+G. de Arrascaeta,Flamengo,9,right,BRA1,2024,Meia,Meia
+E. Martínez,Fortaleza,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Higor Meritão,Criciúma,7,left,BRA1,2024,Primeiro Volante,Primeiro Volante
+Patric,Vitória,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+L. Villalba,Cruzeiro,4,left,BRA1,2024,Zagueiro,Zagueiro
+Gabriel Inocêncio,Juventude,1,right,BRA1,2024,Lateral Direito,Lateral
+Wanderson,Internacional,10,right,BRA1,2024,Extremo,Extremo
+Júnior Santos,Botafogo,12,right,BRA1,2024,Atacante,Atacante
+Fernando Sobral,Cuiabá,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Rezende,Bahia,7,left,BRA1,2024,Primeiro Volante,Primeiro Volante
+Marcelo Hermes,Criciúma,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Ademir,Bahia,11,left,BRA1,2024,Extremo,Extremo
+Zé Welison,Fortaleza,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+A. Barboza,Botafogo,4,left,BRA1,2024,Zagueiro,Zagueiro
+Clayson,Cuiabá,10,right,BRA1,2024,Extremo,Extremo
+Léo Jardim,Vasco da Gama,0,right,BRA1,2024,Goleiro,Goleiro
+Marlon Freitas,Botafogo,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Bruno Tubarão,Atlético GO,1,right,BRA1,2024,Lateral Direito,Lateral
+William,Cruzeiro,1,right,BRA1,2024,Lateral Direito,Lateral
+Allano,Criciúma,10,left,BRA1,2024,Extremo,Extremo
+L. Godoy,Athletico Paranaense,1,right,BRA1,2024,Lateral Direito,Lateral
+Igor Rabello,Atlético Mineiro,4,right,BRA1,2024,Zagueiro,Zagueiro
+Lucas Evangelista,Red Bull Bragantino,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Rony,Palmeiras,12,right,BRA1,2024,Atacante,Atacante
+Thaciano,Bahia,12,right,BRA1,2024,Atacante,Atacante
+Alex Santana,Corinthians,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Raphael Veiga,Palmeiras,9,left,BRA1,2024,Meia,Meia
+Rodrigo Sam,Juventude,4,right,BRA1,2024,Zagueiro,Zagueiro
+A. Rossi,Flamengo,0,right,BRA1,2024,Goleiro,Goleiro
+R. Borré,Internacional,12,right,BRA1,2024,Atacante,Atacante
+Cauly,Bahia,12,right,BRA1,2024,Atacante,Atacante
+Pedro Henrique,Red Bull Bragantino,4,right,BRA1,2024,Zagueiro,Zagueiro
+Caíque,Juventude,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+T. Cardona,Fortaleza,4,left,BRA1,2024,Zagueiro,Zagueiro
+David,Vasco da Gama,10,right,BRA1,2024,Extremo,Extremo
+Rafael Ratão,Bahia,12,right,BRA1,2024,Atacante,Atacante
+Barreto,Criciúma,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Léo Ortiz,Flamengo,4,right,BRA1,2024,Zagueiro,Zagueiro
+Léo,Vasco da Gama,4,left,BRA1,2024,Zagueiro,Zagueiro
+Filipe Machado,Vitória,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+C. Pavón,Grêmio,10,right,BRA1,2024,Extremo,Extremo
+Breno Lopes,Fortaleza,10,right,BRA1,2024,Extremo,Extremo
+Léo Pereira,Flamengo,4,left,BRA1,2024,Zagueiro,Zagueiro
+T. Pochettino,Fortaleza,9,right,BRA1,2024,Meia,Meia
+Fabricio Bruno,Flamengo,4,right,BRA1,2024,Zagueiro,Zagueiro
+John Victor,Botafogo,0,right,BRA1,2024,Goleiro,Goleiro
+Renato Kayzer,Fortaleza,12,right,BRA1,2024,Atacante,Atacante
+Lucas Mineiro,Cuiabá,7,left,BRA1,2024,Primeiro Volante,Primeiro Volante
+Danilo Barbosa,Botafogo,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Lucas Kal,Atlético GO,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Éverton,Flamengo,10,right,BRA1,2024,Extremo,Extremo
+Marcos Felipe,Bahia,0,right,BRA1,2024,Goleiro,Goleiro
+Dodi,Grêmio,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+F. Bustos,Internacional,1,right,BRA1,2024,Lateral Direito,Lateral
+B. Kuščević,Fortaleza,4,right,BRA1,2024,Zagueiro,Zagueiro
+Matheus Pereira,Cruzeiro,12,left,BRA1,2024,Atacante,Atacante
+Luiz Araújo,Flamengo,10,left,BRA1,2024,Extremo,Extremo
+Matheus Rossetto,Fortaleza,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Lima,Fluminense,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Charles,Corinthians,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Raul,Red Bull Bragantino,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Paulo Henrique,Vasco da Gama,1,right,BRA1,2024,Lateral Direito,Lateral
+F. Cristaldo,Grêmio,12,right,BRA1,2024,Atacante,Atacante
+Ronaldo,Atlético GO,0,right,BRA1,2024,Goleiro,Goleiro
+Gabriel Barbosa,Flamengo,12,left,BRA1,2024,Atacante,Atacante
+Moisés,Fortaleza,10,right,BRA1,2024,Extremo,Extremo
+R. Carrillo,Juventude,12,right,BRA1,2024,Atacante,Atacante
+M. Araújo,São Paulo,10,left,BRA1,2024,Extremo,Extremo
+F. Carballo,Grêmio,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Carlos Eduardo,Vitória,10,right,BRA1,2024,Extremo,Extremo
+A. Franco,São Paulo,4,right,BRA1,2024,Zagueiro,Zagueiro
+Luiz Fernando,Atlético GO,11,right,BRA1,2024,Extremo,Extremo
+Ronaldo,Juventude,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Sabino,São Paulo,4,left,BRA1,2024,Zagueiro,Zagueiro
+Pedro Raul,Corinthians,12,right,BRA1,2024,Atacante,Atacante
+J. Savarino,Botafogo,9,right,BRA1,2024,Meia,Meia
+João Pedro,Grêmio,1,right,BRA1,2024,Lateral Direito,Lateral
+L. Di Yorio,Athletico Paranaense,12,right,BRA1,2024,Atacante,Atacante
+P. Galdames,Vasco da Gama,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Raniele,Corinthians,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Erick Farias,Juventude,10,right,BRA1,2024,Extremo,Extremo
+F. Torres,Corinthians,4,right,BRA1,2024,Zagueiro,Zagueiro
+Willean Lepo,Vitória,1,right,BRA1,2024,Lateral Direito,Lateral
+Lucas Cunha,Red Bull Bragantino,4,right,BRA1,2024,Zagueiro,Zagueiro
+M. Villasanti,Grêmio,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Luís Oyama,Juventude,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Lyanco,Atlético Mineiro,4,right,BRA1,2024,Zagueiro,Zagueiro
+Carlinhos,Flamengo,12,right,BRA1,2024,Atacante,Atacante
+Zé Ivaldo,Cruzeiro,4,right,BRA1,2024,Zagueiro,Zagueiro
+Allan,Flamengo,7,left,BRA1,2024,Primeiro Volante,Primeiro Volante
+Pedro Augusto,Fortaleza,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Kanu,Bahia,4,right,BRA1,2024,Zagueiro,Zagueiro
+J. Rodríguez,Vasco da Gama,1,right,BRA1,2024,Lateral Direito,Lateral
+Everton Galdino,Grêmio,12,left,BRA1,2024,Atacante,Atacante
+Thiago Maia,Internacional,7,left,BRA1,2024,Primeiro Volante,Primeiro Volante
+Iago,Bahia,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Murilo,Palmeiras,4,right,BRA1,2024,Zagueiro,Zagueiro
+Bruno Tabata,Internacional,9,left,BRA1,2024,Meia,Meia
+Igor Vinícius,São Paulo,1,right,BRA1,2024,Lateral Direito,Lateral
+Adriano Martins,Atlético GO,4,right,BRA1,2024,Zagueiro,Zagueiro
+Gabriel Taliari,Juventude,12,right,BRA1,2024,Atacante,Atacante
+Guilherme Arana,Atlético Mineiro,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+André Luis,Cuiabá,10,left,BRA1,2024,Extremo,Extremo
+Shaylon,Atlético GO,11,left,BRA1,2024,Extremo,Extremo
+Gerson,Flamengo,10,left,BRA1,2024,Extremo,Extremo
+Marlon,Cruzeiro,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+N. de la Cruz,Flamengo,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+André Silva,São Paulo,12,left,BRA1,2024,Atacante,Atacante
+Edson Carioca,Juventude,10,right,BRA1,2024,Extremo,Extremo
+Ronald,Criciúma,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Ayrton Lucas,Flamengo,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Pedro,Flamengo,12,right,BRA1,2024,Atacante,Atacante
+Y. Soteldo,Grêmio,11,left,BRA1,2024,Extremo,Extremo
+Juninho Capixaba,Red Bull Bragantino,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Cleiton,Red Bull Bragantino,0,right,BRA1,2024,Goleiro,Goleiro
+Hugo,Corinthians,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Gustavo Silva,Vitória,10,right,BRA1,2024,Extremo,Extremo
+Lucas Fernandes,Cuiabá,9,right,BRA1,2024,Meia,Meia
+J. Arias,Fluminense,10,right,BRA1,2024,Extremo,Extremo
+Guilherme Romão,Atlético GO,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+A. Rogel,Internacional,4,right,BRA1,2024,Zagueiro,Zagueiro
+Matheuzinho,Vitória,10,right,BRA1,2024,Extremo,Extremo
+Erick,Athletico Paranaense,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Eduardo Santos,Red Bull Bragantino,4,right,BRA1,2024,Zagueiro,Zagueiro
+Derek,Atlético GO,12,left,BRA1,2024,Atacante,Atacante
+Erick,São Paulo,10,left,BRA1,2024,Extremo,Extremo
+Matheus Henrique,Cruzeiro,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+K. Serna,Fluminense,10,right,BRA1,2024,Extremo,Extremo
+Ferreira,São Paulo,10,right,BRA1,2024,Extremo,Extremo
+Hugo Moura,Vasco da Gama,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+R. Garro,Corinthians,9,left,BRA1,2024,Meia,Meia
+Pepê,Grêmio,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Zé Marcos,Juventude,4,left,BRA1,2024,Zagueiro,Zagueiro
+Matheusinho,Criciúma,9,right,BRA1,2024,Meia,Meia
+Felipe Jonatan,Fortaleza,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Anderson,Cruzeiro,0,left,BRA1,2024,Goleiro,Goleiro
+João Lucas,Juventude,1,right,BRA1,2024,Lateral Direito,Lateral
+M. Zaracho,Atlético Mineiro,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Danilo Boza,Juventude,4,right,BRA1,2024,Zagueiro,Zagueiro
+Caio Paulista,Palmeiras,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+L. Díaz,Cruzeiro,11,right,BRA1,2024,Extremo,Extremo
+Jean Lucas,Bahia,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Matheus Fernandes,Red Bull Bragantino,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Arthur Gomes,Cruzeiro,11,right,BRA1,2024,Extremo,Extremo
+João Victor,Vasco da Gama,4,right,BRA1,2024,Zagueiro,Zagueiro
+Lucas Arcanjo,Vitória,0,right,BRA1,2024,Goleiro,Goleiro
+A. Franco,Atlético Mineiro,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+J. Piquerez,Palmeiras,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+A. Canobbio,Athletico Paranaense,10,right,BRA1,2024,Extremo,Extremo
+Carlos Miguel,Corinthians,0,left,BRA1,2024,Goleiro,Goleiro
+Baralhas,Atlético GO,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Lincoln,Red Bull Bragantino,9,left,BRA1,2024,Meia,Meia
+N. Ferraresi,São Paulo,4,right,BRA1,2024,Zagueiro,Zagueiro
+Rhaldney,Atlético GO,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Caio Vinícius,Vitória,4,right,BRA1,2024,Zagueiro,Zagueiro
+Zé Gabriel,Vasco da Gama,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Hugo Souza,Corinthians,0,right,BRA1,2024,Goleiro,Goleiro
+Caio Alexandre,Bahia,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Janderson,Atlético GO,11,right,BRA1,2024,Extremo,Extremo
+Matheus Mendes,Atlético Mineiro,0,right,BRA1,2024,Goleiro,Goleiro
+Igor Gomes,Atlético Mineiro,11,right,BRA1,2024,Extremo,Extremo
+Wesley,Internacional,10,right,BRA1,2024,Extremo,Extremo
+Vitinho,Red Bull Bragantino,10,right,BRA1,2024,Extremo,Extremo
+Bruno Fuchs,Atlético Mineiro,4,right,BRA1,2024,Zagueiro,Zagueiro
+Matheus Alexandre,Cuiabá,1,right,BRA1,2024,Lateral Direito,Lateral
+Roni,Atlético GO,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Cacá,Corinthians,4,right,BRA1,2024,Zagueiro,Zagueiro
+Matheus Bidu,Corinthians,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Janderson,Vitória,12,right,BRA1,2024,Atacante,Atacante
+A. Moreno,Palmeiras,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Luan Silva,Vitória,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Bento,Athletico Paranaense,0,right,BRA1,2024,Goleiro,Goleiro
+Diego Costa,São Paulo,4,right,BRA1,2024,Zagueiro,Zagueiro
+Wagner Leonardo,Vitória,4,left,BRA1,2024,Zagueiro,Zagueiro
+I. Pitta,Cuiabá,12,right,BRA1,2024,Atacante,Atacante
+Luciano Juba,Bahia,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Fernando,Athletico Paranaense,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Derik Lacerda,Cuiabá,10,right,BRA1,2024,Extremo,Extremo
+Zé Hugo,Vitória,10,right,BRA1,2024,Extremo,Extremo
+Alix Vinicius,Atlético GO,4,right,BRA1,2024,Zagueiro,Zagueiro
+Du Queiroz,Grêmio,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Alerrandro,Vitória,12,right,BRA1,2024,Atacante,Atacante
+I. Machuca,Fortaleza,12,right,BRA1,2024,Atacante,Atacante
+Vitão,Internacional,4,right,BRA1,2024,Zagueiro,Zagueiro
+Rômulo,Internacional,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+T. Cuello,Athletico Paranaense,10,right,BRA1,2024,Extremo,Extremo
+J. Hurtado,Atlético GO,12,right,BRA1,2024,Atacante,Atacante
+Railan,Cuiabá,1,right,BRA1,2024,Lateral Direito,Lateral
+Newton,Criciúma,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+F. Vera,Atlético Mineiro,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Helinho,Red Bull Bragantino,10,left,BRA1,2024,Extremo,Extremo
+Lucas Halter,Botafogo,4,right,BRA1,2024,Zagueiro,Zagueiro
+R. Ríos,Palmeiras,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Marcos Antônio,São Paulo,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+João Marcelo,Cruzeiro,4,right,BRA1,2024,Zagueiro,Zagueiro
+Lucas Esteves,Vitória,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Pedro Rangel,Atlético GO,0,right,BRA1,2024,Goleiro,Goleiro
+Paulinho,Atlético Mineiro,12,right,BRA1,2024,Atacante,Atacante
+Rodrigo Nestor,São Paulo,10,right,BRA1,2024,Extremo,Extremo
+Eric Ramires,Red Bull Bragantino,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Á. Barreal,Cruzeiro,8,left,BRA1,2024,Segundo Volante,Segundo Volante
+E. Rodríguez,Vasco da Gama,10,right,BRA1,2024,Extremo,Extremo
+A. Cruz,Atlético GO,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+M. França Silva,Corinthians,1,right,BRA1,2024,Lateral Direito,Lateral
+Claudinho,Criciúma,1,right,BRA1,2024,Lateral Direito,Lateral
+A. Bernabéi,Internacional,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Gabriel Menino,Palmeiras,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Adson,Vasco da Gama,10,left,BRA1,2024,Extremo,Extremo
+Lucas Piton,Vasco da Gama,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Ewerthon,Juventude,1,right,BRA1,2024,Lateral Direito,Lateral
+M. Gamarra,Athletico Paranaense,4,left,BRA1,2024,Zagueiro,Zagueiro
+Hércules,Fortaleza,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+J. López,Palmeiras,12,left,BRA1,2024,Atacante,Atacante
+Christian,Athletico Paranaense,9,right,BRA1,2024,Meia,Meia
+Luiz Henrique,Botafogo,10,left,BRA1,2024,Extremo,Extremo
+Lucas Freitas,Juventude,4,left,BRA1,2024,Zagueiro,Zagueiro
+Julimar,Athletico Paranaense,10,right,BRA1,2024,Extremo,Extremo
+Luan Cândido,Red Bull Bragantino,4,left,BRA1,2024,Zagueiro,Zagueiro
+Welington,São Paulo,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Lucas Barbosa,Juventude,10,left,BRA1,2024,Extremo,Extremo
+Igor Jesus,Botafogo,12,right,BRA1,2024,Atacante,Atacante
+Lucão,Red Bull Bragantino,0,right,BRA1,2024,Goleiro,Goleiro
+Kaique Rocha,Athletico Paranaense,4,right,BRA1,2024,Zagueiro,Zagueiro
+Léo Linck,Athletico Paranaense,0,right,BRA1,2024,Goleiro,Goleiro
+Igor Gomes,Internacional,4,right,BRA1,2024,Zagueiro,Zagueiro
+Ramon,Cuiabá,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Yuri Alberto,Corinthians,12,right,BRA1,2024,Atacante,Atacante
+Denilson,Cuiabá,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Biel,Bahia,10,right,BRA1,2024,Extremo,Extremo
+Bruno Gomes,Internacional,1,right,BRA1,2024,Lateral Direito,Lateral
+Gabriel Carvalho,Internacional,10,right,BRA1,2024,Extremo,Extremo
+Estevão,Palmeiras,10,left,BRA1,2024,Extremo,Extremo
+Rayan,Vasco da Gama,10,left,BRA1,2024,Extremo,Extremo
+Endrick,Palmeiras,12,left,BRA1,2024,Atacante,Atacante
+Lorran,Flamengo,9,left,BRA1,2024,Meia,Meia
+João Cruz,Athletico Paranaense,12,unknown,BRA1,2024,Atacante,Atacante
+Kauã Elias,Fluminense,12,right,BRA1,2024,Atacante,Atacante
+Vitor Reis,Palmeiras,4,right,BRA1,2024,Zagueiro,Zagueiro
+Gustavo Nunes,Grêmio,10,right,BRA1,2024,Extremo,Extremo
+Alisson,Atlético Mineiro,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Matheus Gonçalves,Flamengo,10,left,BRA1,2024,Extremo,Extremo
+Gustavo Prado,Internacional,10,right,BRA1,2024,Extremo,Extremo
+Wesley,Corinthians,10,right,BRA1,2024,Extremo,Extremo
+Breno Bidon,Corinthians,8,left,BRA1,2024,Segundo Volante,Segundo Volante
+Nathan Fernandes,Grêmio,10,right,BRA1,2024,Extremo,Extremo
+Paulo Vitor,Atlético Mineiro,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Douglas Mendes,Red Bull Bragantino,4,right,BRA1,2024,Zagueiro,Zagueiro
+Cadu,Atlético Mineiro,12,right,BRA1,2024,Atacante,Atacante
+Gustavinho,Red Bull Bragantino,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Mycael,Athletico Paranaense,0,left,BRA1,2024,Goleiro,Goleiro
+M. Monsalve,Grêmio,9,right,BRA1,2024,Meia,Meia
+Vitinho,Cruzeiro,8,left,BRA1,2024,Segundo Volante,Segundo Volante
+Rômulo,Atlético Mineiro,4,right,BRA1,2024,Zagueiro,Zagueiro
+A. Giay,Palmeiras,1,right,BRA1,2024,Lateral Direito,Lateral
+Robert Renan,Internacional,4,left,BRA1,2024,Zagueiro,Zagueiro
+Wesley,Flamengo,1,right,BRA1,2024,Lateral Direito,Lateral
+F. Bernal,Fluminense,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Alexsander,Fluminense,7,left,BRA1,2024,Primeiro Volante,Primeiro Volante
+Rikelme,Cuiabá,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+E. Rodríguez,Atlético GO,12,left,BRA1,2024,Atacante,Atacante
+Ryan,Corinthians,8,left,BRA1,2024,Segundo Volante,Segundo Volante
+M. Ponte,Botafogo,1,right,BRA1,2024,Lateral Direito,Lateral
+Marquinhos,Fluminense,10,left,BRA1,2024,Extremo,Extremo
+Kaiki,Cruzeiro,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Cuiabano,Botafogo,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Eliel,Cuiabá,10,right,BRA1,2024,Extremo,Extremo
+Marcelinho,Juventude,10,right,BRA1,2024,Extremo,Extremo
+B. Palacios,Atlético Mineiro,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Jhon Jhon,Red Bull Bragantino,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+Vanderlan,Palmeiras,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+A. Aravena,Grêmio,10,right,BRA1,2024,Extremo,Extremo
+Gabriel Veron,Cruzeiro,11,right,BRA1,2024,Extremo,Extremo
+Nathan Mendes,Red Bull Bragantino,1,right,BRA1,2024,Lateral Direito,Lateral
+Gustavo Martins,Grêmio,4,right,BRA1,2024,Zagueiro,Zagueiro
+John Kennedy,Fluminense,12,right,BRA1,2024,Atacante,Atacante
+Matheus Donelli,Corinthians,0,right,BRA1,2024,Goleiro,Goleiro
+B. Zapelli,Athletico Paranaense,9,right,BRA1,2024,Meia,Meia
+Naves,Palmeiras,4,right,BRA1,2024,Zagueiro,Zagueiro
+Fabinho,Palmeiras,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+T. Borbas,Red Bull Bragantino,12,right,BRA1,2024,Atacante,Atacante
+Mateus Carvalho,Vasco da Gama,7,left,BRA1,2024,Primeiro Volante,Primeiro Volante
+Lázaro,Palmeiras,10,right,BRA1,2024,Extremo,Extremo
+J. Sforza,Vasco da Gama,7,left,BRA1,2024,Primeiro Volante,Primeiro Volante
+Guilherme,Red Bull Bragantino,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Kaio Jorge,Cruzeiro,12,right,BRA1,2024,Atacante,Atacante
+J. Hurtado,Red Bull Bragantino,1,right,BRA1,2024,Lateral Direito,Lateral
+H. Mosquera,Red Bull Bragantino,10,right,BRA1,2024,Extremo,Extremo
+L. Esquivel,Athletico Paranaense,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Martinelli,Fluminense,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Mandaca,Juventude,9,right,BRA1,2024,Meia,Meia
+Hugo,Botafogo,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Léo Naldi,Vitória,8,right,BRA1,2024,Segundo Volante,Segundo Volante
+André,Fluminense,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+D. Bobadilla,São Paulo,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Maurício,Palmeiras,9,left,BRA1,2024,Meia,Meia
+Rubens,Atlético Mineiro,1,left,BRA1,2024,Lateral Esquerdo,Lateral
+Natã,Grêmio,4,right,BRA1,2024,Zagueiro,Zagueiro
+Jadsom Silva,Red Bull Bragantino,7,right,BRA1,2024,Primeiro Volante,Primeiro Volante
+Max,Cuiabá,9,left,BRA1,2024,Meia,Meia
+Gabriel Xavier,Bahia,4,right,BRA1,2024,Zagueiro,Zagueiro
+T. Almada,Botafogo,10,right,BRA1,2024,Extremo,Extremo

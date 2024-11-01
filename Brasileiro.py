@@ -11253,13 +11253,11 @@ if choose == "Compare Jogadores":
             Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_5.csv')
 
             Lateral_Charts_1 = Lateral_Charts[
-            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
-            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_2))
             ]
-
             # Reindex to ensure the correct order
             Lateral_Charts_1 = Lateral_Charts_1.set_index('Atleta').loc[[jogador_1, jogador_2]].reset_index()
-
             # Create a dictionary of columns to rename by removing the '_percentil' suffix
             columns_to_rename = {
                 col: col.replace('_Percentil', '') for col in Lateral_Charts_1.columns if '_Percentil' in col
@@ -11390,7 +11388,7 @@ if choose == "Compare Jogadores":
             jogador_1_percents = pd.read_csv('PlayerAnalysis_Role_5.csv')
             #Collecting metrics for jogador_1
             jogador_1_metrics = jogador_1_metrics[
-            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe'] == equipe_1))]
+            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_metrics = jogador_1_metrics.iloc[:, np.r_[1, 18:36]].reset_index(drop=True)
             #jogador_1_metrics = jogador_1_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_1_metrics = jogador_1_metrics.round(decimals=2)
@@ -11398,7 +11396,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_1
             jogador_1_percents = jogador_1_percents[
-            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe'] == equipe_1))]
+            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_percents = jogador_1_percents.iloc[:, np.r_[20, 81:99]].reset_index(drop=True)
             #jogador_1_percents = jogador_1_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_1_percents = jogador_1_percents.round(decimals=0)
@@ -11432,7 +11430,7 @@ if choose == "Compare Jogadores":
             jogador_2_percents = pd.read_csv('PlayerAnalysis_Role_5.csv')
             #Collecting metrics for jogador_2
             jogador_2_metrics = jogador_2_metrics[
-            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe'] == equipe_2))]
+            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_metrics = jogador_2_metrics.iloc[:, np.r_[1, 18:36]].reset_index(drop=True)
             #jogador_2_metrics = jogador_2_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_2_metrics = jogador_2_metrics.round(decimals=2)
@@ -11440,7 +11438,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_2
             jogador_2_percents = jogador_2_percents[
-            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe'] == equipe_2))]
+            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_percents = jogador_2_percents.iloc[:, np.r_[20, 81:99]].reset_index(drop=True)
             #jogador_2_percents = jogador_2_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_2_percents = jogador_2_percents.round(decimals=0)
@@ -11637,8 +11635,8 @@ if choose == "Compare Jogadores":
             Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_8.csv')
 
             Lateral_Charts_1 = Lateral_Charts[
-            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
-            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_2))
             ]
 
             # Reindex to ensure the correct order
@@ -11772,7 +11770,7 @@ if choose == "Compare Jogadores":
             jogador_1_percents = pd.read_csv('PlayerAnalysis_Role_8.csv')
             #Collecting metrics for jogador_1
             jogador_1_metrics = jogador_1_metrics[
-            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe'] == equipe_1))]
+            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_metrics = jogador_1_metrics.iloc[:, np.r_[1, 18:31]].reset_index(drop=True)
             #jogador_1_metrics = jogador_1_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_1_metrics = jogador_1_metrics.round(decimals=2)
@@ -11780,7 +11778,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_1
             jogador_1_percents = jogador_1_percents[
-            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe'] == equipe_1))]
+            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_percents = jogador_1_percents.iloc[:, np.r_[15, 66:79]].reset_index(drop=True)
             #jogador_1_percents = jogador_1_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_1_percents = jogador_1_percents.round(decimals=0)
@@ -11814,7 +11812,7 @@ if choose == "Compare Jogadores":
             jogador_2_percents = pd.read_csv('PlayerAnalysis_Role_8.csv')
             #Collecting metrics for jogador_2
             jogador_2_metrics = jogador_2_metrics[
-            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe'] == equipe_2))]
+            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_metrics = jogador_2_metrics.iloc[:, np.r_[1, 18:31]].reset_index(drop=True)
             jogador_2_metrics = jogador_2_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_2_metrics = jogador_2_metrics.round(decimals=2)
@@ -11822,7 +11820,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_2
             jogador_2_percents = jogador_2_percents[
-            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe'] == equipe_2))]
+            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_percents = jogador_2_percents.iloc[:, np.r_[15, 66:79]].reset_index(drop=True)
             #jogador_2_percents = jogador_2_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_2_percents = jogador_2_percents.round(decimals=0)
@@ -12019,8 +12017,8 @@ if choose == "Compare Jogadores":
             Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_11.csv')
 
             Lateral_Charts_1 = Lateral_Charts[
-            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
-            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_2))
             ]
 
             # Reindex to ensure the correct order
@@ -12154,7 +12152,7 @@ if choose == "Compare Jogadores":
             jogador_1_percents = pd.read_csv('PlayerAnalysis_Role_11.csv')
             #Collecting metrics for jogador_1
             jogador_1_metrics = jogador_1_metrics[
-            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe'] == equipe_1))]
+            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_metrics = jogador_1_metrics.iloc[:, np.r_[1, 18:29]].reset_index(drop=True)
             jogador_1_metrics = jogador_1_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_1_metrics = jogador_1_metrics.round(decimals=2)
@@ -12162,7 +12160,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_1
             jogador_1_percents = jogador_1_percents[
-            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe'] == equipe_1))]
+            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_percents = jogador_1_percents.iloc[:, np.r_[13, 60:71]].reset_index(drop=True)
             jogador_1_percents = jogador_1_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_1_percents = jogador_1_percents.round(decimals=0)
@@ -12196,7 +12194,7 @@ if choose == "Compare Jogadores":
             jogador_2_percents = pd.read_csv('PlayerAnalysis_Role_11.csv')
             #Collecting metrics for jogador_2
             jogador_2_metrics = jogador_2_metrics[
-            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe'] == equipe_2))]
+            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_metrics = jogador_2_metrics.iloc[:, np.r_[1, 18:29]].reset_index(drop=True)
             jogador_2_metrics = jogador_2_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_2_metrics = jogador_2_metrics.round(decimals=2)
@@ -12204,7 +12202,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_2
             jogador_2_percents = jogador_2_percents[
-            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe'] == equipe_2))]
+            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_percents = jogador_2_percents.iloc[:, np.r_[13, 60:71]].reset_index(drop=True)
             jogador_2_percents = jogador_2_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_2_percents = jogador_2_percents.round(decimals=0)
@@ -12399,8 +12397,8 @@ if choose == "Compare Jogadores":
             Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_14.csv')
 
             Lateral_Charts_1 = Lateral_Charts[
-            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
-            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_2))
             ]
 
             # Reindex to ensure the correct order
@@ -12534,7 +12532,7 @@ if choose == "Compare Jogadores":
             jogador_1_percents = pd.read_csv('PlayerAnalysis_Role_14.csv')
             #Collecting metrics for jogador_1
             jogador_1_metrics = jogador_1_metrics[
-            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe'] == equipe_1))]
+            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_metrics = jogador_1_metrics.iloc[:, np.r_[1, 18:31]].reset_index(drop=True)
             jogador_1_metrics = jogador_1_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_1_metrics = jogador_1_metrics.round(decimals=2)
@@ -12542,7 +12540,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_1
             jogador_1_percents = jogador_1_percents[
-            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe'] == equipe_1))]
+            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_percents = jogador_1_percents.iloc[:, np.r_[15, 66:79]].reset_index(drop=True)
             jogador_1_percents = jogador_1_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_1_percents = jogador_1_percents.round(decimals=0)
@@ -12576,7 +12574,7 @@ if choose == "Compare Jogadores":
             jogador_2_percents = pd.read_csv('PlayerAnalysis_Role_14.csv')
             #Collecting metrics for jogador_2
             jogador_2_metrics = jogador_2_metrics[
-            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe'] == equipe_2))]
+            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_metrics = jogador_2_metrics.iloc[:, np.r_[1, 18:31]].reset_index(drop=True)
             jogador_2_metrics = jogador_2_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_2_metrics = jogador_2_metrics.round(decimals=2)
@@ -12584,7 +12582,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_2
             jogador_2_percents = jogador_2_percents[
-            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe'] == equipe_2))]
+            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_percents = jogador_2_percents.iloc[:, np.r_[15, 66:79]].reset_index(drop=True)
             #jogador_2_percents = jogador_2_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_2_percents = jogador_2_percents.round(decimals=0)
@@ -12784,8 +12782,8 @@ if choose == "Compare Jogadores":
             Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_15.csv')
 
             Lateral_Charts_1 = Lateral_Charts[
-            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
-            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_2))
             ]
 
             # Reindex to ensure the correct order
@@ -12864,7 +12862,7 @@ if choose == "Compare Jogadores":
             jogador_1_percents = pd.read_csv('PlayerAnalysis_Role_15.csv')
             #Collecting metrics for jogador_1
             jogador_1_metrics = jogador_1_metrics[
-            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe'] == equipe_1))]
+            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_metrics = jogador_1_metrics.iloc[:, np.r_[1, 18:28]].reset_index(drop=True)
             jogador_1_metrics = jogador_1_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_1_metrics = jogador_1_metrics.round(decimals=2)
@@ -12872,7 +12870,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_1
             jogador_1_percents = jogador_1_percents[
-            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe'] == equipe_1))]
+            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_percents = jogador_1_percents.iloc[:, np.r_[12, 57:67]].reset_index(drop=True)
             jogador_1_percents = jogador_1_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_1_percents = jogador_1_percents.round(decimals=0)
@@ -12906,7 +12904,7 @@ if choose == "Compare Jogadores":
             jogador_2_percents = pd.read_csv('PlayerAnalysis_Role_15.csv')
             #Collecting metrics for jogador_2
             jogador_2_metrics = jogador_2_metrics[
-            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe'] == equipe_2))]
+            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_metrics = jogador_2_metrics.iloc[:, np.r_[1, 18:28]].reset_index(drop=True)
             #jogador_2_metrics = jogador_2_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_2_metrics = jogador_2_metrics.round(decimals=2)
@@ -12914,7 +12912,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_2
             jogador_2_percents = jogador_2_percents[
-            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe'] == equipe_2))]
+            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_percents = jogador_2_percents.iloc[:, np.r_[12, 57:67]].reset_index(drop=True)
             #jogador_2_percents = jogador_2_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_2_percents = jogador_2_percents.round(decimals=0)
@@ -13108,8 +13106,8 @@ if choose == "Compare Jogadores":
             Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_16.csv')
 
             Lateral_Charts_1 = Lateral_Charts[
-            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
-            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_2))
             ]
 
             # Reindex to ensure the correct order
@@ -13243,7 +13241,7 @@ if choose == "Compare Jogadores":
             jogador_1_percents = pd.read_csv('PlayerAnalysis_Role_16.csv')
             #Collecting metrics for jogador_1
             jogador_1_metrics = jogador_1_metrics[
-            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe'] == equipe_1))]
+            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_metrics = jogador_1_metrics.iloc[:, np.r_[1, 18:35]].reset_index(drop=True)
             #jogador_1_metrics = jogador_1_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_1_metrics = jogador_1_metrics.round(decimals=2)
@@ -13251,7 +13249,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_1
             jogador_1_percents = jogador_1_percents[
-            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe'] == equipe_1))]
+            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_percents = jogador_1_percents.iloc[:, np.r_[19, 78:95]].reset_index(drop=True)
             #jogador_1_percents = jogador_1_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_1_percents = jogador_1_percents.round(decimals=0)
@@ -13285,7 +13283,7 @@ if choose == "Compare Jogadores":
             jogador_2_percents = pd.read_csv('PlayerAnalysis_Role_16.csv')
             #Collecting metrics for jogador_2
             jogador_2_metrics = jogador_2_metrics[
-            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe'] == equipe_2))]
+            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_metrics = jogador_2_metrics.iloc[:, np.r_[1, 18:35]].reset_index(drop=True)
             #jogador_2_metrics = jogador_2_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_2_metrics = jogador_2_metrics.round(decimals=2)
@@ -13293,7 +13291,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_2
             jogador_2_percents = jogador_2_percents[
-            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe'] == equipe_2))]
+            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_percents = jogador_2_percents.iloc[:, np.r_[19, 78:95]].reset_index(drop=True)
             #jogador_2_percents = jogador_2_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_2_percents = jogador_2_percents.round(decimals=0)
@@ -13491,8 +13489,8 @@ if choose == "Compare Jogadores":
             Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_17.csv')
 
             Lateral_Charts_1 = Lateral_Charts[
-            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
-            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_2))
             ]
 
             # Reindex to ensure the correct order
@@ -13625,7 +13623,7 @@ if choose == "Compare Jogadores":
             jogador_1_percents = pd.read_csv('PlayerAnalysis_Role_17.csv')
             #Collecting metrics for jogador_1
             jogador_1_metrics = jogador_1_metrics[
-            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe'] == equipe_1))]
+            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_metrics = jogador_1_metrics.iloc[:, np.r_[1, 18:31]].reset_index(drop=True)
             #jogador_1_metrics = jogador_1_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_1_metrics = jogador_1_metrics.round(decimals=2)
@@ -13633,7 +13631,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_1
             jogador_1_percents = jogador_1_percents[
-            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe'] == equipe_1))]
+            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_percents = jogador_1_percents.iloc[:, np.r_[15, 66:79]].reset_index(drop=True)
             #jogador_1_percents = jogador_1_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_1_percents = jogador_1_percents.round(decimals=0)
@@ -13667,7 +13665,7 @@ if choose == "Compare Jogadores":
             jogador_2_percents = pd.read_csv('PlayerAnalysis_Role_17.csv')
             #Collecting metrics for jogador_2
             jogador_2_metrics = jogador_2_metrics[
-            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe'] == equipe_2))]
+            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_metrics = jogador_2_metrics.iloc[:, np.r_[1, 18:31]].reset_index(drop=True)
             #jogador_2_metrics = jogador_2_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_2_metrics = jogador_2_metrics.round(decimals=2)
@@ -13675,7 +13673,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_2
             jogador_2_percents = jogador_2_percents[
-            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe'] == equipe_2))]
+            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_percents = jogador_2_percents.iloc[:, np.r_[15, 66:79]].reset_index(drop=True)
             #jogador_2_percents = jogador_2_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_2_percents = jogador_2_percents.round(decimals=0)
@@ -13869,8 +13867,8 @@ if choose == "Compare Jogadores":
             Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_18.csv')
 
             Lateral_Charts_1 = Lateral_Charts[
-            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
-            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_2))
             ]
 
             # Reindex to ensure the correct order
@@ -13948,7 +13946,7 @@ if choose == "Compare Jogadores":
             jogador_1_percents = pd.read_csv('PlayerAnalysis_Role_18.csv')
             #Collecting metrics for jogador_1
             jogador_1_metrics = jogador_1_metrics[
-            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe'] == equipe_1))]
+            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_metrics = jogador_1_metrics.iloc[:, np.r_[1, 18:25]].reset_index(drop=True)
             #jogador_1_metrics = jogador_1_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_1_metrics = jogador_1_metrics.round(decimals=2)
@@ -13956,7 +13954,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_1
             jogador_1_percents = jogador_1_percents[
-            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe'] == equipe_1))]
+            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_percents = jogador_1_percents.iloc[:, np.r_[9, 48:55]].reset_index(drop=True)
             #jogador_1_percents = jogador_1_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_1_percents = jogador_1_percents.round(decimals=0)
@@ -13990,7 +13988,7 @@ if choose == "Compare Jogadores":
             jogador_2_percents = pd.read_csv('PlayerAnalysis_Role_18.csv')
             #Collecting metrics for jogador_2
             jogador_2_metrics = jogador_2_metrics[
-            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe'] == equipe_2))]
+            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_metrics = jogador_2_metrics.iloc[:, np.r_[1, 18:25]].reset_index(drop=True)
             #jogador_2_metrics = jogador_2_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_2_metrics = jogador_2_metrics.round(decimals=2)
@@ -13998,7 +13996,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_2
             jogador_2_percents = jogador_2_percents[
-            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe'] == equipe_2))]
+            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_percents = jogador_2_percents.iloc[:, np.r_[9, 48:55]].reset_index(drop=True)
             #jogador_2_percents = jogador_2_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_2_percents = jogador_2_percents.round(decimals=0)
@@ -14193,8 +14191,8 @@ if choose == "Compare Jogadores":
             Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_19.csv')
 
             Lateral_Charts_1 = Lateral_Charts[
-            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
-            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_2))
             ]
 
             # Reindex to ensure the correct order
@@ -14328,7 +14326,7 @@ if choose == "Compare Jogadores":
             jogador_1_percents = pd.read_csv('PlayerAnalysis_Role_19.csv')
             #Collecting metrics for jogador_1
             jogador_1_metrics = jogador_1_metrics[
-            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe'] == equipe_1))]
+            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_metrics = jogador_1_metrics.iloc[:, np.r_[1, 18:31]].reset_index(drop=True)
             #jogador_1_metrics = jogador_1_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_1_metrics = jogador_1_metrics.round(decimals=2)
@@ -14336,7 +14334,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_1
             jogador_1_percents = jogador_1_percents[
-            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe'] == equipe_1))]
+            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_percents = jogador_1_percents.iloc[:, np.r_[15, 66:79]].reset_index(drop=True)
             #jogador_1_percents = jogador_1_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_1_percents = jogador_1_percents.round(decimals=0)
@@ -14370,7 +14368,7 @@ if choose == "Compare Jogadores":
             jogador_2_percents = pd.read_csv('PlayerAnalysis_Role_19.csv')
             #Collecting metrics for jogador_2
             jogador_2_metrics = jogador_2_metrics[
-            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe'] == equipe_2))]
+            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_metrics = jogador_2_metrics.iloc[:, np.r_[1, 18:31]].reset_index(drop=True)
             jogador_2_metrics = jogador_2_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_2_metrics = jogador_2_metrics.round(decimals=2)
@@ -14378,7 +14376,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_2
             jogador_2_percents = jogador_2_percents[
-            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe'] == equipe_2))]
+            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_percents = jogador_2_percents.iloc[:, np.r_[15, 66:79]].reset_index(drop=True)
             #jogador_2_percents = jogador_2_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_2_percents = jogador_2_percents.round(decimals=0)
@@ -14576,8 +14574,8 @@ if choose == "Compare Jogadores":
             Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_20.csv')
 
             Lateral_Charts_1 = Lateral_Charts[
-            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
-            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_2))
             ]
 
             # Reindex to ensure the correct order
@@ -14656,7 +14654,7 @@ if choose == "Compare Jogadores":
             jogador_1_percents = pd.read_csv('PlayerAnalysis_Role_20.csv')
             #Collecting metrics for jogador_1
             jogador_1_metrics = jogador_1_metrics[
-            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe'] == equipe_1))]
+            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_metrics = jogador_1_metrics.iloc[:, np.r_[1, 18:28]].reset_index(drop=True)
             #jogador_1_metrics = jogador_1_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_1_metrics = jogador_1_metrics.round(decimals=2)
@@ -14664,7 +14662,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_1
             jogador_1_percents = jogador_1_percents[
-            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe'] == equipe_1))]
+            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_percents = jogador_1_percents.iloc[:, np.r_[12, 57:67]].reset_index(drop=True)
             #jogador_1_percents = jogador_1_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_1_percents = jogador_1_percents.round(decimals=0)
@@ -14698,7 +14696,7 @@ if choose == "Compare Jogadores":
             jogador_2_percents = pd.read_csv('PlayerAnalysis_Role_20.csv')
             #Collecting metrics for jogador_2
             jogador_2_metrics = jogador_2_metrics[
-            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe'] == equipe_2))]
+            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_metrics = jogador_2_metrics.iloc[:, np.r_[1, 18:28]].reset_index(drop=True)
             #jogador_2_metrics = jogador_2_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_2_metrics = jogador_2_metrics.round(decimals=2)
@@ -14706,7 +14704,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_2
             jogador_2_percents = jogador_2_percents[
-            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe'] == equipe_2))]
+            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_percents = jogador_2_percents.iloc[:, np.r_[12, 57:67]].reset_index(drop=True)
             #jogador_2_percents = jogador_2_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_2_percents = jogador_2_percents.round(decimals=0)
@@ -14900,8 +14898,8 @@ if choose == "Compare Jogadores":
             Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_21.csv')
 
             Lateral_Charts_1 = Lateral_Charts[
-            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
-            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_2))
             ]
 
             # Reindex to ensure the correct order
@@ -14980,7 +14978,7 @@ if choose == "Compare Jogadores":
             jogador_1_percents = pd.read_csv('PlayerAnalysis_Role_21.csv')
             #Collecting metrics for jogador_1
             jogador_1_metrics = jogador_1_metrics[
-            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe'] == equipe_1))]
+            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_metrics = jogador_1_metrics.iloc[:, np.r_[1, 18:27]].reset_index(drop=True)
             #jogador_1_metrics = jogador_1_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_1_metrics = jogador_1_metrics.round(decimals=2)
@@ -14988,7 +14986,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_1
             jogador_1_percents = jogador_1_percents[
-            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe'] == equipe_1))]
+            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_percents = jogador_1_percents.iloc[:, np.r_[11, 54:63]].reset_index(drop=True)
             #jogador_1_percents = jogador_1_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_1_percents = jogador_1_percents.round(decimals=0)
@@ -15022,7 +15020,7 @@ if choose == "Compare Jogadores":
             jogador_2_percents = pd.read_csv('PlayerAnalysis_Role_21.csv')
             #Collecting metrics for jogador_2
             jogador_2_metrics = jogador_2_metrics[
-            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe'] == equipe_2))]
+            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_metrics = jogador_2_metrics.iloc[:, np.r_[1, 18:27]].reset_index(drop=True)
             #jogador_2_metrics = jogador_2_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_2_metrics = jogador_2_metrics.round(decimals=2)
@@ -15030,7 +15028,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_2
             jogador_2_percents = jogador_2_percents[
-            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe'] == equipe_2))]
+            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_percents = jogador_2_percents.iloc[:, np.r_[11, 54:63]].reset_index(drop=True)
             #jogador_2_percents = jogador_2_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_2_percents = jogador_2_percents.round(decimals=0)
@@ -15224,8 +15222,8 @@ if choose == "Compare Jogadores":
             Lateral_Charts = pd.read_csv('PlayerAnalysis_Role_22.csv')
 
             Lateral_Charts_1 = Lateral_Charts[
-            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe'] == equipe_1)) |
-            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe'] == equipe_2))
+            ((Lateral_Charts['Atleta'] == jogador_1) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_1)) |
+            ((Lateral_Charts['Atleta'] == jogador_2) & (Lateral_Charts['Equipe_Janela_Análise'] == equipe_2))
             ]
 
             # Reindex to ensure the correct order
@@ -15358,7 +15356,7 @@ if choose == "Compare Jogadores":
             jogador_1_percents = pd.read_csv('PlayerAnalysis_Role_22.csv')
             #Collecting metrics for jogador_1
             jogador_1_metrics = jogador_1_metrics[
-            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe'] == equipe_1))]
+            ((jogador_1_metrics['Atleta'] == jogador_1) & (jogador_1_metrics['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_metrics = jogador_1_metrics.iloc[:, np.r_[1, 18:31]].reset_index(drop=True)
             #jogador_1_metrics = jogador_1_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_1_metrics = jogador_1_metrics.round(decimals=2)
@@ -15366,7 +15364,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_1
             jogador_1_percents = jogador_1_percents[
-            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe'] == equipe_1))]
+            ((jogador_1_percents['Atleta'] == jogador_1) & (jogador_1_percents['Equipe_Janela_Análise'] == equipe_1))]
             jogador_1_percents = jogador_1_percents.iloc[:, np.r_[15, 66:79]].reset_index(drop=True)
             #jogador_1_percents = jogador_1_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_1_percents = jogador_1_percents.round(decimals=0)
@@ -15400,7 +15398,7 @@ if choose == "Compare Jogadores":
             jogador_2_percents = pd.read_csv('PlayerAnalysis_Role_22.csv')
             #Collecting metrics for jogador_2
             jogador_2_metrics = jogador_2_metrics[
-            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe'] == equipe_2))]
+            ((jogador_2_metrics['Atleta'] == jogador_2) & (jogador_2_metrics['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_metrics = jogador_2_metrics.iloc[:, np.r_[1, 18:31]].reset_index(drop=True)
             #jogador_2_metrics = jogador_2_metrics.rename(columns={'Interceptações.1':'Interceptações'})
             jogador_2_metrics = jogador_2_metrics.round(decimals=2)
@@ -15408,7 +15406,7 @@ if choose == "Compare Jogadores":
                         
             #Collecting percentiles for jogador_2
             jogador_2_percents = jogador_2_percents[
-            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe'] == equipe_2))]
+            ((jogador_2_percents['Atleta'] == jogador_2) & (jogador_2_percents['Equipe_Janela_Análise'] == equipe_2))]
             jogador_2_percents = jogador_2_percents.iloc[:, np.r_[15, 66:79]].reset_index(drop=True)
             #jogador_2_percents = jogador_2_percents.rename(columns={'Interceptações.1_Percentil':'Interceptações_Percentil'})
             jogador_2_percents = jogador_2_percents.round(decimals=0)
